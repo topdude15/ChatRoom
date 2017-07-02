@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowgradient" translatesAutoresizingMaskIntoConstraints="NO" id="qeM-6n-Vl7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YmF-8W-fsB">
                                 <rect key="frame" x="37" y="256" width="300" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -62,29 +65,28 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78t-cD-kjf">
-                                <rect key="frame" x="116" y="502" width="140" height="38"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagramtitle" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-ZO-JxF">
+                                <rect key="frame" x="28" y="85" width="318" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78t-cD-kjf">
+                                <rect key="frame" x="59" y="509" width="257" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="qTY-i4-amN"/>
+                                    <constraint firstAttribute="width" constant="200" id="qTY-i4-amN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="19"/>
-                                <state key="normal" title="Sign Up"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.23226514274691357" green="0.1677517361111111" blue="0.5522400655864198" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="signUpTapped:" destination="22M-b6-8Ea" eventType="touchUpInside" id="BNO-2B-K06"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagramtitle" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-ZO-JxF">
-                                <rect key="frame" x="28" y="85" width="318" height="128"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowgradient" translatesAutoresizingMaskIntoConstraints="NO" id="qeM-6n-Vl7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="leading" secondItem="qpo-Gv-dGK" secondAttribute="leading" id="0SX-fr-rRF"/>
                             <constraint firstItem="Grw-aq-hzv" firstAttribute="top" secondItem="YmF-8W-fsB" secondAttribute="bottom" constant="14" id="1dy-Ow-tj2"/>
-                            <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="78t-cD-kjf" secondAttribute="centerX" constant="1" id="47f-Rz-Cld"/>
+                            <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="78t-cD-kjf" secondAttribute="centerX" constant="-3" id="47f-Rz-Cld"/>
                             <constraint firstItem="xKT-SC-dyD" firstAttribute="trailing" secondItem="xT5-aN-epe" secondAttribute="trailing" id="7lw-i4-w8K"/>
                             <constraint firstItem="eMi-ZO-JxF" firstAttribute="top" secondItem="UHG-gQ-YAn" secondAttribute="bottom" constant="65" id="Dv0-7f-7Ro"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="top" secondItem="eMi-ZO-JxF" secondAttribute="bottom" constant="43" id="E0B-Pq-ZEh"/>
@@ -97,7 +99,7 @@
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="top" secondItem="qpo-Gv-dGK" secondAttribute="top" constant="256" id="XoH-3y-1QV"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="eMi-ZO-JxF" secondAttribute="centerX" id="c7b-ba-iCV"/>
                             <constraint firstItem="xKT-SC-dyD" firstAttribute="top" secondItem="xT5-aN-epe" secondAttribute="bottom" constant="35" id="m8j-l1-wFd"/>
-                            <constraint firstItem="78t-cD-kjf" firstAttribute="top" secondItem="xKT-SC-dyD" secondAttribute="bottom" constant="24" id="nAi-ga-61X"/>
+                            <constraint firstItem="78t-cD-kjf" firstAttribute="top" secondItem="xKT-SC-dyD" secondAttribute="bottom" constant="27" id="nAi-ga-61X"/>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="bottom" secondItem="Z0N-mY-qrX" secondAttribute="top" id="nDT-3F-9Zu"/>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="top" secondItem="qpo-Gv-dGK" secondAttribute="top" id="t45-M2-KjI"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="trailing" secondItem="Grw-aq-hzv" secondAttribute="trailing" id="tSX-Vi-TIG"/>
