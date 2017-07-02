@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>579850071688-uulpg2ip24kki1t3ppp3n6p8o80s5vaj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.579850071688-uulpg2ip24kki1t3ppp3n6p8o80s5vaj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD12wBaeF0igcSp0Mvx-I2V2IO0nY4MwzM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>579850071688</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Trevor.ChatRoom</string>
+	<key>PROJECT_ID</key>
+	<string>chatroom-1c01b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatroom-1c01b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:579850071688:ios:6c865a7e4f1705aa</string>
+	<key>DATABASE_URL</key>
+	<string>https://chatroom-1c01b.firebaseio.com</string>
+</dict>
+</plist>
