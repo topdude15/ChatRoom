@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Foundation
+import Firebase
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
+
+    //Link input boxes on login screen
+    @IBOutlet weak var usernameBox: UITextField!
+    @IBOutlet weak var emailBox: UITextField!
+    @IBOutlet weak var passwordBox: UITextField!
+    @IBOutlet weak var repeatPasswordBox: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func signUp(_ sender: Any) {
+        let username = usernameBox.text
+        let email = emailBox.text
+        let password = passwordBox.text
+        let repeatPassword = repeatPasswordBox.text
+        
+        if (password == repeatPassword) {
+            
+        } else {
+            print("Passwords are not the same!")
+        }
+    }
 
 }
 
