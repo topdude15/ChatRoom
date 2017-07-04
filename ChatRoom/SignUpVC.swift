@@ -27,7 +27,13 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: "join", sender: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,7 +81,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                                 Database.database().reference().child("users").child(user.uid).updateChildValues(usernameValue)  //Sets the user's username in Firebase
                                 let alertController = UIAlertController(title: "Signup Completed", message: "Please confirm your email to continue.", preferredStyle: .alert)
                                 let defaultAction = UIAlertAction(title: "Close", style: .default, handler: { action in
-                                    self.performSegue(withIdentifier: "none", sender: nil)   //Go to next screen when user closes popup to confirm email
+                                    self.performSegue(withIdentifier: "addImage", sender: nil)   //Go to next screen when user closes popup to confirm email
                                 })
                                 alertController.addAction(defaultAction)
                                 self.present(alertController, animated: true, completion: nil)  //Present popup to tell user to validate email

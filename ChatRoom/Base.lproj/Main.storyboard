@@ -68,10 +68,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagramtitle" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-ZO-JxF">
                                 <rect key="frame" x="28" y="85" width="318" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78t-cD-kjf">
-                                <rect key="frame" x="59" y="509" width="257" height="50"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78t-cD-kjf">
+                                <rect key="frame" x="59" y="509" width="257" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="qTY-i4-amN"/>
+                                    <constraint firstAttribute="width" constant="257" id="qTY-i4-amN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="21"/>
                                 <state key="normal" title="Sign Up">
@@ -86,7 +86,7 @@
                         <constraints>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="leading" secondItem="qpo-Gv-dGK" secondAttribute="leading" id="0SX-fr-rRF"/>
                             <constraint firstItem="Grw-aq-hzv" firstAttribute="top" secondItem="YmF-8W-fsB" secondAttribute="bottom" constant="14" id="1dy-Ow-tj2"/>
-                            <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="78t-cD-kjf" secondAttribute="centerX" constant="-3" id="47f-Rz-Cld"/>
+                            <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="78t-cD-kjf" secondAttribute="centerX" constant="-0.5" id="47f-Rz-Cld"/>
                             <constraint firstItem="xKT-SC-dyD" firstAttribute="trailing" secondItem="xT5-aN-epe" secondAttribute="trailing" id="7lw-i4-w8K"/>
                             <constraint firstItem="eMi-ZO-JxF" firstAttribute="top" secondItem="UHG-gQ-YAn" secondAttribute="bottom" constant="65" id="Dv0-7f-7Ro"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="top" secondItem="eMi-ZO-JxF" secondAttribute="bottom" constant="43" id="E0B-Pq-ZEh"/>
@@ -99,7 +99,7 @@
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="top" secondItem="qpo-Gv-dGK" secondAttribute="top" constant="256" id="XoH-3y-1QV"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="centerX" secondItem="eMi-ZO-JxF" secondAttribute="centerX" id="c7b-ba-iCV"/>
                             <constraint firstItem="xKT-SC-dyD" firstAttribute="top" secondItem="xT5-aN-epe" secondAttribute="bottom" constant="35" id="m8j-l1-wFd"/>
-                            <constraint firstItem="78t-cD-kjf" firstAttribute="top" secondItem="xKT-SC-dyD" secondAttribute="bottom" constant="27" id="nAi-ga-61X"/>
+                            <constraint firstItem="78t-cD-kjf" firstAttribute="top" secondItem="xKT-SC-dyD" secondAttribute="bottom" constant="31" id="nAi-ga-61X"/>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="bottom" secondItem="Z0N-mY-qrX" secondAttribute="top" id="nDT-3F-9Zu"/>
                             <constraint firstItem="qeM-6n-Vl7" firstAttribute="top" secondItem="qpo-Gv-dGK" secondAttribute="top" id="t45-M2-KjI"/>
                             <constraint firstItem="YmF-8W-fsB" firstAttribute="trailing" secondItem="Grw-aq-hzv" secondAttribute="trailing" id="tSX-Vi-TIG"/>
@@ -119,15 +119,231 @@
                         <outlet property="passwordBox" destination="xT5-aN-epe" id="8J8-Gy-etR"/>
                         <outlet property="repeatPasswordBox" destination="xKT-SC-dyD" id="eLr-Lx-vuq"/>
                         <outlet property="usernameBox" destination="YmF-8W-fsB" id="9OC-Zb-XhG"/>
+                        <segue destination="q4M-qs-dld" kind="show" identifier="addImage" id="uON-1W-l9C"/>
+                        <segue destination="w8X-gB-ryk" kind="show" identifier="join" id="ngM-gj-XEL"/>
+                        <segue destination="xJP-No-qsn" kind="show" identifier="list" id="YrE-4v-mFr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGu-oB-tXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-111.2" y="-18.440779610194905"/>
         </scene>
+        <!--Add User Image-->
+        <scene sceneID="mZX-rj-bQE">
+            <objects>
+                <viewController id="q4M-qs-dld" customClass="AddUserImage" customModule="ChatRoom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cro-Vl-Dqa"/>
+                        <viewControllerLayoutGuide type="bottom" id="hLK-et-L9l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oOT-Wi-Ee1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="aa7-ug-t0A" customClass="CircleImage" customModule="ChatRoom" customModuleProvider="target">
+                                <rect key="frame" x="112" y="34" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4oi-da-ix9" appends="YES" id="vrZ-RU-AqT"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Profile Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-hl-qys">
+                                <rect key="frame" x="95" y="192" width="184" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyL-iP-ULJ">
+                                <rect key="frame" x="37" y="232" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.98431372549019602" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aah-BF-o5A">
+                                <rect key="frame" x="37" y="270" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.98431372549019602" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6DI-2k-2FL">
+                                <rect key="frame" x="37" y="363" width="300" height="173"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="520721851.07101297">
+                                    <!--2017-07-02 20:57:31 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="536410800">
+                                    <!--2017-12-31 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date of birth (will not be displayed publicly)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-v1-ppK">
+                                <rect key="frame" x="37" y="308" width="300" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f98-Oa-4mk">
+                                <rect key="frame" x="120" y="557" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Continue"/>
+                                <connections>
+                                    <action selector="uploadUserImage:" destination="q4M-qs-dld" eventType="touchUpInside" id="V1W-I3-AeX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.98431372549019602" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="addUserImage" destination="4oi-da-ix9" id="JLq-Vx-yKg"/>
+                        <outlet property="agePicker" destination="6DI-2k-2FL" id="vex-TL-BXs"/>
+                        <outlet property="nameBox" destination="cyL-iP-ULJ" id="FdO-GF-qlP"/>
+                        <outlet property="userImage" destination="aa7-ug-t0A" id="cRa-Nw-FRN"/>
+                        <outlet property="usernameBox" destination="Aah-BF-o5A" id="Jy2-a9-ROI"/>
+                        <segue destination="w8X-gB-ryk" kind="show" identifier="join" id="NL1-BQ-to9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uhl-xI-4Wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4oi-da-ix9" userLabel="Add Image">
+                    <connections>
+                        <action selector="addUserImage:" destination="q4M-qs-dld" id="0Xg-A6-SZX"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="638" y="-18"/>
+        </scene>
+        <!--JoinVC-->
+        <scene sceneID="K7S-9B-7Qn">
+            <objects>
+                <viewController id="w8X-gB-ryk" customClass="JoinVC" customModule="ChatRoom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjR-Yc-Hrx"/>
+                        <viewControllerLayoutGuide type="bottom" id="maj-2V-Mat"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jdg-3U-iR9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group code..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vif-Wd-FjB">
+                                <rect key="frame" x="69" y="84" width="236" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-Yj-pzU">
+                                <rect key="frame" x="131" y="153" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Join"/>
+                                <connections>
+                                    <action selector="joinTapped:" destination="w8X-gB-ryk" eventType="touchUpInside" id="uT7-BU-U7C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSb-2f-BHX">
+                                <rect key="frame" x="93" y="476" width="189" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Group"/>
+                                <connections>
+                                    <action selector="createGroup:" destination="w8X-gB-ryk" eventType="touchUpInside" id="dG7-mA-bFN"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1z-eh-YOf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Join or Create a Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pq-wf-Eke">
+                                        <rect key="frame" x="89" y="17" width="196" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="groupCodeBox" destination="vif-Wd-FjB" id="uSi-Wr-21T"/>
+                        <segue destination="xJP-No-qsn" kind="show" identifier="list" id="qgI-o7-219"/>
+                        <segue destination="xAg-af-izO" kind="show" identifier="create" id="d87-ly-tHN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mc0-uK-GRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488.8" y="-18.440779610194905"/>
+        </scene>
+        <!--Create MainVC-->
+        <scene sceneID="jR7-ec-hjc">
+            <objects>
+                <viewController id="xAg-af-izO" customClass="CreateMainVC" customModule="ChatRoom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VHH-rP-LpZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="VQ4-BM-fTZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fPg-iO-WZI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9P-15-Awb">
+                                <rect key="frame" x="37" y="109" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-yW-UZp">
+                                <rect key="frame" x="164" y="177" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="createGroup:" destination="xAg-af-izO" eventType="touchUpInside" id="Uef-yO-Wjl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeBox" destination="f9P-15-Awb" id="6lL-dR-e9v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZxK-Sp-Ea9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488.8" y="725.48725637181417"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="n6m-yC-Mx5">
+            <objects>
+                <viewController id="xJP-No-qsn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ln6-VK-eS3"/>
+                        <viewControllerLayoutGuide type="bottom" id="D1H-fL-vaM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OAh-IW-bku">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQI-cu-cpn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2254" y="-18"/>
+        </scene>
     </scenes>
     <resources>
         <image name="instagramtitle" width="1200" height="429"/>
+        <image name="plus" width="200" height="200"/>
         <image name="yellowgradient" width="480" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ngM-gj-XEL"/>
+        <segue reference="qgI-o7-219"/>
+    </inferredMetricsTieBreakers>
 </document>
