@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import Firebase
+
+class Util {
+    static let ds = Util()
+    
+    let Ref = Database.database().reference()
+    let UserRef = Database.database().reference().child("users")
+    let GroupRef = Database.database().reference().child("groups")
+    let StorageRef = Storage.storage().reference()
+}
+

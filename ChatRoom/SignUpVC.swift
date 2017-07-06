@@ -78,7 +78,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                         changeRequest?.commitChanges(completion: { (error) in
                             Auth.auth().currentUser?.sendEmailVerification { (error) in    //Sends verification email
                                 let usernameValue = ["username": username] //Setting up for username update
-                                Database.database().reference().child("users").child(user.uid).updateChildValues(usernameValue)  //Sets the user's username in Firebase
+                                Util.ds.UserRef.child(user.uid).updateChildValues(usernameValue)  //Sets the user's username in Firebase
                                 let alertController = UIAlertController(title: "Signup Completed", message: "Please confirm your email to continue.", preferredStyle: .alert)
                                 let defaultAction = UIAlertAction(title: "Close", style: .default, handler: { action in
                                     self.performSegue(withIdentifier: "addImage", sender: nil)   //Go to next screen when user closes popup to confirm email

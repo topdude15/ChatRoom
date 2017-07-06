@@ -18,13 +18,33 @@ class CreateMainVC: UIViewController {
     }
     
     @IBAction func createGroup(_ sender: Any) {
-        let userCode = codeBox.text
         
-        Database.database().reference().child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+        let userCode = codeBox.text
+        let uid = Auth.auth().currentUser?.uid
+        
+        Util.ds.GroupRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(userCode!) {
-                print("Group already exists")
+                let alertController = UIAlertController(title: "Group already exists", message: "A group for this code already exists.  Please use a different code.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             } else {
-                print("Group does not already exist")
+                
+                //Add user to group
+                let user: Dictionary<String, AnyObject> = [
+                    uid!: true as AnyObject
+                ]
+                Util.ds.GroupRef.child(userCode!).child("users").updateChildValues(user)
+                
+                //Add group to user profile
+                let groupCode: Dictionary<String, AnyObject> = [
+                    userCode!: true as AnyObject
+                ]
+                
+                Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupCode)
+                
+                
+                
             }
         })
     }

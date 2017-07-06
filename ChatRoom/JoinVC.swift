@@ -25,17 +25,22 @@ class JoinVC: UIViewController {
         let group = groupCodeBox.text
         let uid = Auth.auth().currentUser?.uid
         
-        Database.database().reference().child("groups").observeSingleEvent(of: .value, with: { (snapshot) in
+       Util.ds.GroupRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(group!) {
                 print("Group exists")
+                
+                //Add user to the group
                 let user: Dictionary<String, AnyObject> = [
                     uid!: group as AnyObject
                 ]
+                Util.ds.GroupRef.child(group!).child("users").updateChildValues(user)
+                
+                //Add group to user profile
                 let groupId: Dictionary<String, AnyObject> = [
                     group!: true as AnyObject
                 ]
-                Database.database().reference().child("groups").child(group!).child("users").updateChildValues(user)
-                Database.database().reference().child("users").child(uid!).child("groups").updateChildValues(groupId)
+                Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupId)
+                
             } else {
                 let alertController = UIAlertController(title: "Group does not exist", message: "This group does not exist!  Please use a valid group code.", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
@@ -46,5 +51,8 @@ class JoinVC: UIViewController {
     }
     @IBAction func createGroup(_ sender: Any) {
         performSegue(withIdentifier: "create", sender: nil) 
+    }
+    @IBAction func test(_ sender: Any) {
+        performSegue(withIdentifier: "list", sender: nil)
     }
 }

@@ -29,7 +29,7 @@ class AddUserImage: UIViewController, UIImagePickerControllerDelegate, UINavigat
         imagePicker.delegate = self
         
         let uid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+        Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let username = dictionary["username"]
                 self.usernameBox.text = username as? String
@@ -61,7 +61,7 @@ class AddUserImage: UIViewController, UIImagePickerControllerDelegate, UINavigat
             metadata.contentType = "image/jpeg"
             
             if let _ = Auth.auth().currentUser {
-                Storage.storage().reference().child("profilePics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
+                Util.ds.StorageRef.child("profilePics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
                     if error != nil {
                         print("You are a loser and your photo could not be uploaded")
                     } else {
@@ -83,7 +83,7 @@ class AddUserImage: UIViewController, UIImagePickerControllerDelegate, UINavigat
                                 "age": selectedDate as AnyObject,
                                 "name": name as AnyObject
                             ]
-                            Database.database().reference().child("users").child(uid!).updateChildValues(post)
+                            Util.ds.UserRef.child(uid!).updateChildValues(post)
                             self.performSegue(withIdentifier: "join", sender: nil)
 
                         }

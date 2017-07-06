@@ -267,6 +267,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-Ag-dH3">
+                                <rect key="frame" x="164" y="307" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="w8X-gB-ryk" eventType="touchUpInside" id="biN-3P-lEA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -316,12 +324,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxK-Sp-Ea9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488.8" y="725.48725637181417"/>
+            <point key="canvasLocation" x="1489" y="705"/>
         </scene>
-        <!--View Controller-->
+        <!--Group ListVC-->
         <scene sceneID="n6m-yC-Mx5">
             <objects>
-                <viewController id="xJP-No-qsn" sceneMemberID="viewController">
+                <viewController id="xJP-No-qsn" customClass="GroupListVC" customModule="ChatRoom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ln6-VK-eS3"/>
                         <viewControllerLayoutGuide type="bottom" id="D1H-fL-vaM"/>
@@ -329,12 +337,51 @@
                     <view key="view" contentMode="scaleToFill" id="OAh-IW-bku">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Vo-v7-P5H">
+                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="tRk-if-U9o" customClass="GroupCell" customModule="ChatRoom" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tRk-if-U9o" id="roi-5k-H8f">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="119.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-9h-JOr">
+                                                    <rect key="frame" x="98" y="42" width="236" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iql-bp-Khh" customClass="CircleImage" customModule="ChatRoom" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="20" width="80" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="groupImage" destination="iql-bp-Khh" id="UwI-7D-Who"/>
+                                            <outlet property="nameLabel" destination="9o2-9h-JOr" id="Ahd-E9-Yzt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="0Vo-v7-P5H" id="x7l-8H-hEz"/>
+                        <segue destination="w8X-gB-ryk" kind="show" identifier="join" id="YZ5-Bo-4RN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQI-cu-cpn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2254" y="-18"/>
+            <point key="canvasLocation" x="2253.5999999999999" y="-18.440779610194905"/>
         </scene>
     </scenes>
     <resources>
@@ -343,7 +390,7 @@
         <image name="yellowgradient" width="480" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ngM-gj-XEL"/>
         <segue reference="qgI-o7-219"/>
+        <segue reference="YZ5-Bo-4RN"/>
     </inferredMetricsTieBreakers>
 </document>
