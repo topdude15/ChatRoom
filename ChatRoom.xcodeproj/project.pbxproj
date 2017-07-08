@@ -17,6 +17,9 @@
 		CF02BE0E1F08449C00EF706D /* ChatRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BE0D1F08449C00EF706D /* ChatRoomUITests.swift */; };
 		CF02BE1C1F08453600EF706D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */; };
 		CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BE1F1F08709200EF706D /* SignUpVC.swift */; };
+		CF36860E1F0EDE3900E7A75B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36860D1F0EDE3900E7A75B /* ChatVC.swift */; };
+		CF3686101F0EE42D00E7A75B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36860F1F0EE42D00E7A75B /* Chat.swift */; };
+		CF3686121F0EE4FB00E7A75B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3686111F0EE4FB00E7A75B /* ChatCell.swift */; };
 		CF3B03C01F097904009F1E44 /* AddUserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B03BF1F097904009F1E44 /* AddUserImage.swift */; };
 		CF3B03C31F0985B6009F1E44 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B03C21F0985B6009F1E44 /* CircleImage.swift */; };
 		CF3B03C51F09AB08009F1E44 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B03C41F09AB08009F1E44 /* JoinVC.swift */; };
@@ -69,6 +72,9 @@
 		CF02BE0F1F08449C00EF706D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF02BE1F1F08709200EF706D /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		CF36860D1F0EDE3900E7A75B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		CF36860F1F0EE42D00E7A75B /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		CF3686111F0EE4FB00E7A75B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		CF3B03BF1F097904009F1E44 /* AddUserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserImage.swift; sourceTree = "<group>"; };
 		CF3B03C21F0985B6009F1E44 /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		CF3B03C41F09AB08009F1E44 /* JoinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				CF3B03C41F09AB08009F1E44 /* JoinVC.swift */,
 				CFE774721F0B306E00FC7290 /* CreateMainVC.swift */,
 				CFE774771F0B3D1100FC7290 /* GroupListVC.swift */,
+				CF36860D1F0EDE3900E7A75B /* ChatVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 			children = (
 				CF3B03C21F0985B6009F1E44 /* CircleImage.swift */,
 				CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */,
+				CF3686111F0EE4FB00E7A75B /* ChatCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				CFE7747A1F0B3E1000FC7290 /* Group.swift */,
+				CF36860F1F0EE42D00E7A75B /* Chat.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -532,13 +541,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE7747B1F0B3E1000FC7290 /* Group.swift in Sources */,
+				CF3686101F0EE42D00E7A75B /* Chat.swift in Sources */,
 				CF3B03C01F097904009F1E44 /* AddUserImage.swift in Sources */,
 				CF3B03C31F0985B6009F1E44 /* CircleImage.swift in Sources */,
 				CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */,
 				CF02BDEE1F08449A00EF706D /* AppDelegate.swift in Sources */,
 				CF440BBA1F0D3BCF00CBEB19 /* GroupCell.swift in Sources */,
+				CF36860E1F0EDE3900E7A75B /* ChatVC.swift in Sources */,
 				CFE774761F0B3A4E00FC7290 /* Util.swift in Sources */,
 				CF3B03C51F09AB08009F1E44 /* JoinVC.swift in Sources */,
+				CF3686121F0EE4FB00E7A75B /* ChatCell.swift in Sources */,
 				CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */,
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
 			);

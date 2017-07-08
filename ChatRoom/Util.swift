@@ -16,5 +16,8 @@ class Util {
     let UserRef = Database.database().reference().child("users")
     let GroupRef = Database.database().reference().child("groups")
     let StorageRef = Storage.storage().reference()
+    
+    
+    var groupKey = "key"
 }
 

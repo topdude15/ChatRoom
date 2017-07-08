@@ -13,7 +13,7 @@ class Group {
     
     private var _name: String!
     private var _image: String!
-   // private var _groupCode: String!
+    private var _groupKey: String!
     
     var name: String {
         return _name
@@ -22,20 +22,16 @@ class Group {
     var image: String {
         return _image
     }
-//    var groupCode: String {
-//        return _groupCode
-//    }
+    var groupKey: String {
+        return _groupKey
+    }
 
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
         
-        if let name = postData["name"] as? String, let image = postData["image"] as? String {
-            print(name)
-            
+        if let name = postData["name"] as? String, let image = postData["image"] as? String, let groupKey = postData["groupKey"] as? String {
             self._name = name
             self._image = image
-//            self._groupCode = groupCode
+            self._groupKey = groupKey
         }
-        
     }
-
 }

@@ -29,10 +29,7 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     if snap.hasChild("users/\(self.uid!)") {
                         if let postDict = snap.value as? Dictionary<String, AnyObject> {
                             let key = snap.key
-                            print(snap.children)
                             let group = Group(postKey: key, postData: postDict)
-                            print(snap.value!)
-                            print(postDict)
                             self.groups.append(group)
                             self.tableView.reloadData()
                         }
@@ -53,7 +50,9 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return groups.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //...
+        let group = groups[indexPath.row]
+        Util.ds.groupKey = group.groupKey
+        performSegue(withIdentifier: "chat", sender: nil)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let group = groups[indexPath.row]
@@ -68,6 +67,7 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     private func addGestures() {
         let swiftDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         swiftDown.direction = .right
+        self.tableView.addGestureRecognizer(swiftDown)
         self.view.addGestureRecognizer(swiftDown)
     }
     @objc private func handleSwipe(sender: UISwipeGestureRecognizer) {
