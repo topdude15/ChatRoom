@@ -408,51 +408,57 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPI-g6-4Ds" customClass="CircleImage" customModule="ChatRoom" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="a9x-cq-jFf"/>
-                                                        <constraint firstAttribute="width" constant="60" id="gbe-eQ-DDo"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0T-JL-qSA">
-                                                    <rect key="frame" x="83" y="31" width="284" height="51"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="51" id="Nuc-CT-aTf"/>
-                                                        <constraint firstAttribute="height" constant="51" id="oZS-nB-eQr"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0T-JL-qSA">
+                                                    <rect key="frame" x="83" y="23" width="284" height="59"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="Nuc-CT-aTf"/>
-                                                            <exclude reference="oZS-nB-eQr"/>
-                                                        </mask>
-                                                    </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-Hj-2Y2">
-                                                    <rect key="frame" x="83" y="8" width="284" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-Hj-2Y2">
+                                                    <rect key="frame" x="83" y="0.0" width="284" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="f6p-bZ-9Sa"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TPI-g6-4Ds" customClass="CircleImage" customModule="ChatRoom" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="13" width="65" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="Ndk-3G-Boc"/>
+                                                        <constraint firstAttribute="width" constant="65" id="inc-ml-9be"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Ndk-3G-Boc"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="leading" secondItem="TPI-g6-4Ds" secondAttribute="trailing" constant="15" id="1c9-9v-FhB"/>
-                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="topMargin" id="5kr-Uw-F8L"/>
-                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="top" secondItem="GB5-Hj-2Y2" secondAttribute="bottom" id="AG2-6z-bnN"/>
-                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="top" secondItem="GB5-Hj-2Y2" secondAttribute="bottom" id="GfE-1J-xHz"/>
-                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="top" secondItem="GB5-Hj-2Y2" secondAttribute="top" id="IQJ-gj-agR"/>
-                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="bottom" secondItem="HaL-u6-5Jq" secondAttribute="bottomMargin" id="gqz-y3-0Jj"/>
-                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="topMargin" id="hgW-Mg-JKZ"/>
-                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="leading" secondItem="TPI-g6-4Ds" secondAttribute="trailing" constant="15" id="lng-PG-I1N"/>
-                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="leading" secondItem="TPI-g6-4Ds" secondAttribute="trailing" constant="15" id="ndA-7z-JVb"/>
-                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="trailing" secondItem="HaL-u6-5Jq" secondAttribute="trailingMargin" id="oQ5-uv-9XD"/>
-                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="leading" secondItem="HaL-u6-5Jq" secondAttribute="leadingMargin" id="ocA-Zj-95U"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TPI-g6-4Ds" secondAttribute="bottom" constant="14" id="pBx-uC-0Gw"/>
-                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="trailing" secondItem="HaL-u6-5Jq" secondAttribute="trailingMargin" id="rR0-ye-j5z"/>
+                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="top" secondItem="GB5-Hj-2Y2" secondAttribute="bottom" id="3UE-fb-V19"/>
+                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="trailing" secondItem="e0T-JL-qSA" secondAttribute="trailing" id="Dxh-UF-jT5"/>
+                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="leading" secondItem="HaL-u6-5Jq" secondAttribute="leadingMargin" id="NTl-Ef-I1t"/>
+                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="bottom" secondItem="HaL-u6-5Jq" secondAttribute="bottomMargin" id="Srn-ql-hsz"/>
+                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="topMargin" constant="5" id="WRo-RS-QOP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TPI-g6-4Ds" secondAttribute="bottom" constant="4" id="YJl-ee-vcf"/>
+                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="leading" secondItem="TPI-g6-4Ds" secondAttribute="trailing" constant="10" id="cte-DR-lCU"/>
+                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="centerX" secondItem="HaL-u6-5Jq" secondAttribute="centerX" constant="-147" id="hj6-wh-FhD"/>
+                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="topMargin" id="iZq-fU-9eb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TPI-g6-4Ds" secondAttribute="bottom" constant="14" id="jbr-z7-Az1"/>
+                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="leading" secondItem="e0T-JL-qSA" secondAttribute="leading" id="mQW-M8-L3i"/>
+                                                <constraint firstItem="e0T-JL-qSA" firstAttribute="trailing" secondItem="HaL-u6-5Jq" secondAttribute="trailingMargin" id="vPD-4g-dXM"/>
+                                                <constraint firstItem="TPI-g6-4Ds" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="topMargin" id="x9o-9r-pkP"/>
+                                                <constraint firstItem="GB5-Hj-2Y2" firstAttribute="top" secondItem="HaL-u6-5Jq" secondAttribute="top" id="zBI-Fz-8tU"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="iZq-fU-9eb"/>
+                                                    <exclude reference="jbr-z7-Az1"/>
+                                                    <exclude reference="x9o-9r-pkP"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageLabel" destination="e0T-JL-qSA" id="koq-ho-kfK"/>
