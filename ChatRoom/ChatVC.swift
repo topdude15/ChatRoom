@@ -11,8 +11,10 @@ import Firebase
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageBox: UITextField!
+    @IBOutlet weak var groupTitle: UILabel!
     
     let uid = Auth.auth().currentUser?.uid
     
@@ -21,14 +23,21 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 90
+        tableView.estimatedRowHeight = 200
         
         let group = Util.ds.groupKey
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        Util.ds.GroupRef.child(group).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                let groupTitle = dictionary["name"] as? String
+                self.groupTitle.text = groupTitle
+            }
+        })
         
         Util.ds.GroupRef.child(group).child("messages").observe(.value, with: { (snapshot) in
             self.chats = []
@@ -45,19 +54,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
 
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
-        self.tableView.layoutSubviews()
-        self.tableView.reloadData()
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -102,5 +98,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             })
         }
     }
-
+    
+    @IBAction func back(_ sender: Any) {
+        self.performSegue(withIdentifier: "list", sender: nil)
+    }
 }

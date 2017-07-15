@@ -43,7 +43,15 @@ class CreateMainVC: UIViewController {
                 
                 Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupCode)
                 
+                let groupKey: Dictionary<String, AnyObject> = [
+                    "groupKey": userCode as AnyObject
+                ]
                 
+                Util.ds.GroupRef.child(userCode!).updateChildValues(groupKey)
+                
+                Util.ds.createGroupKey = userCode!
+                
+                self.performSegue(withIdentifier: "create", sender: nil)
                 
             }
         })

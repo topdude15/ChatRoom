@@ -19,5 +19,9 @@ class Util {
     
     
     var groupKey = "key"
+    
+    var createGroupKey = "key"
+    
+    var wentHome = false
 }
 

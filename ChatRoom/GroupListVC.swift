@@ -64,16 +64,8 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return GroupCell()
         }
     }
-    private func addGestures() {
-        let swiftDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swiftDown.direction = .right
-        self.tableView.addGestureRecognizer(swiftDown)
-        self.view.addGestureRecognizer(swiftDown)
-    }
-    @objc private func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if (sender.direction == .right) {
-            performSegue(withIdentifier: "join", sender: nil)
-        }
-    }
 
+    @IBAction func backTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "join", sender: nil)
+    }
 }
