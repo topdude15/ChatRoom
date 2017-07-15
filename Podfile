@@ -11,6 +11,7 @@ target 'ChatRoom' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'IQKeyboardManagerSwift'
 
   target 'ChatRoomTests' do
     inherit! :search_paths

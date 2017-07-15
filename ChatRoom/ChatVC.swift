@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
-class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +18,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var groupTitle: UILabel!
     
     let uid = Auth.auth().currentUser?.uid
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var chats = [Chat]()
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
@@ -28,6 +31,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 200
         
         let group = Util.ds.groupKey
+        
+        messageBox.delegate = self
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,6 +58,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         })
 
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
