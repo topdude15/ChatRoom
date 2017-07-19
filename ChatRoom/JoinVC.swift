@@ -118,7 +118,6 @@ class JoinVC: UIViewController {
         performSegue(withIdentifier: "list", sender: nil)
     }
     @IBAction func signOut(_ sender: Any) {
-        try! Auth.auth().signOut()
-        performSegue(withIdentifier: "login", sender: nil)
+        performSegue(withIdentifier: "profile", sender: nil)
     }
 }

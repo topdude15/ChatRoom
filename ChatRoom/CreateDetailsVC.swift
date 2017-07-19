@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import ChromaColorPicker
 
-class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, ChromaColorPickerDelegate {
     
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupNameBox: UITextField!
@@ -23,11 +24,19 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let neatColorPicker = ChromaColorPicker(frame: CGRect(x: ((self.view.frame.width / 2) - 75), y: ((self.view.frame.height / 2) + 25), width: 150, height: 150))
+        neatColorPicker.delegate = self //ChromaColorPickerDelegate
+        neatColorPicker.padding = 0
+        neatColorPicker.stroke = 3
+        neatColorPicker.hexLabel.textColor = UIColor.black
+        self.view.addSubview(neatColorPicker)
+        
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
 
         groupCode = Util.ds.createGroupKey
+        self.groupKeyBox.text = groupCode
         
         Util.ds.GroupRef.child(groupCode).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
@@ -36,6 +45,14 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                 }
             }
         })
+    }
+
+    
+    func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
+        let color: Dictionary<String, AnyObject> = [
+            "color": colorPicker.hexLabel.text as AnyObject
+        ]
+        Util.ds.GroupRef.child(groupCode).updateChildValues(color)
     }
     
     
@@ -70,7 +87,6 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                         let downloadUrl = metadata?.downloadURL()?.absoluteString
                         if let link = downloadUrl {
                             
-                            
                             if (self.groupPasswordBox.text != "") {
                                 let groupPassword = self.groupPasswordBox.text
                                 let group: Dictionary<String, AnyObject> = [
@@ -82,6 +98,27 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                                 self.performSegue(withIdentifier: "list", sender: nil)
                                 
                             } else {
+                                let uid = Auth.auth().currentUser?.uid
+                                
+                                //Add user to group
+                                let user: Dictionary<String, AnyObject> = [
+                                    uid!: true as AnyObject
+                                ]
+                                Util.ds.GroupRef.child(self.groupCode).child("users").updateChildValues(user)
+                                
+                                //Add group to user profile
+                                let groupRef: Dictionary<String, AnyObject> = [
+                                    self.groupCode: true as AnyObject
+                                ]
+                                
+                                Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupRef)
+                                
+                                let groupKey: Dictionary<String, AnyObject> = [
+                                    "groupKey": self.groupCode as AnyObject
+                                ]
+                                
+                                Util.ds.GroupRef.child(self.groupCode).updateChildValues(groupKey)
+
                                 let group: Dictionary<String, AnyObject> = [
                                     "name": self.groupNameBox.text as AnyObject,
                                     "image": link as AnyObject

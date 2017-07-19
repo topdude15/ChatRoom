@@ -18,6 +18,7 @@
 		CF02BE1C1F08453600EF706D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */; };
 		CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BE1F1F08709200EF706D /* SignUpVC.swift */; };
 		CF1A85B31F181FBF00E1614F /* CreateDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */; };
+		CF2D85F91F1C17E6004E72B9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */; };
 		CF36860E1F0EDE3900E7A75B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36860D1F0EDE3900E7A75B /* ChatVC.swift */; };
 		CF3686101F0EE42D00E7A75B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36860F1F0EE42D00E7A75B /* Chat.swift */; };
 		CF3686121F0EE4FB00E7A75B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3686111F0EE4FB00E7A75B /* ChatCell.swift */; };
@@ -76,6 +77,7 @@
 		CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF02BE1F1F08709200EF706D /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDetailsVC.swift; sourceTree = "<group>"; };
+		CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		CF36860D1F0EDE3900E7A75B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		CF36860F1F0EE42D00E7A75B /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CF3686111F0EE4FB00E7A75B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				CFE774721F0B306E00FC7290 /* CreateMainVC.swift */,
 				CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */,
 				CF85CA631F12C3340047663C /* LaunchScreenVC.swift */,
+				CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -464,12 +467,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ChatRoom/Pods-ChatRoom-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -565,6 +570,7 @@
 				CF3B03C51F09AB08009F1E44 /* JoinVC.swift in Sources */,
 				CF3686121F0EE4FB00E7A75B /* ChatCell.swift in Sources */,
 				CF85CA641F12C3340047663C /* LaunchScreenVC.swift in Sources */,
+				CF2D85F91F1C17E6004E72B9 /* ProfileVC.swift in Sources */,
 				CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */,
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
 				CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */,
@@ -723,12 +729,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9F5M35K84C;
 				INFOPLIST_FILE = ChatRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.Lyon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -741,12 +749,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9F5M35K84C;
 				INFOPLIST_FILE = ChatRoom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.Lyon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

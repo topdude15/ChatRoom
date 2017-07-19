@@ -20,7 +20,6 @@ class CreateMainVC: UIViewController {
     @IBAction func createGroup(_ sender: Any) {
         
         let userCode = codeBox.text
-        let uid = Auth.auth().currentUser?.uid
         
         Util.ds.GroupRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(userCode!) {
@@ -30,24 +29,6 @@ class CreateMainVC: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             } else {
                 
-                //Add user to group
-                let user: Dictionary<String, AnyObject> = [
-                    uid!: true as AnyObject
-                ]
-                Util.ds.GroupRef.child(userCode!).child("users").updateChildValues(user)
-                
-                //Add group to user profile
-                let groupCode: Dictionary<String, AnyObject> = [
-                    userCode!: true as AnyObject
-                ]
-                
-                Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupCode)
-                
-                let groupKey: Dictionary<String, AnyObject> = [
-                    "groupKey": userCode as AnyObject
-                ]
-                
-                Util.ds.GroupRef.child(userCode!).updateChildValues(groupKey)
                 
                 Util.ds.createGroupKey = userCode!
                 

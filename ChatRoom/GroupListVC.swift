@@ -21,6 +21,11 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.delegate = self
         tableView.dataSource = self
         
+
+
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
         Util.ds.GroupRef.observe(.value, with: { (snapshot) in
             self.groups = []
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
@@ -38,10 +43,8 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     }
                 }
             }
-
+            
         })
-
-        // Do any additional setup after loading the view.
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

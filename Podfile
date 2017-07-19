@@ -12,6 +12,7 @@ target 'ChatRoom' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'IQKeyboardManagerSwift'
+  pod 'ChromaColorPicker'
 
   target 'ChatRoomTests' do
     inherit! :search_paths
