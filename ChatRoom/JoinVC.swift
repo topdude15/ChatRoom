@@ -20,7 +20,7 @@ class JoinVC: UIViewController {
             Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild("groups") {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                        self.performSegue(withIdentifier: "list", sender: nil)
+                        self.performSegue(withIdentifier: "reveal", sender: nil)
                         Util.ds.wentHome = true
                     })
                 }
@@ -62,7 +62,7 @@ class JoinVC: UIViewController {
                                     ]
                                     Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupId)
                                     
-                                    self.performSegue(withIdentifier: "list", sender: nil)
+                                    self.performSegue(withIdentifier: "reveal", sender: nil)
                                 } else {
                                     let alertController = UIAlertController(title: "Incorrect password", message: "This password is incorrect.  Please input the correct password and try again.", preferredStyle: .alert)
                                     let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
@@ -87,6 +87,7 @@ class JoinVC: UIViewController {
                                 group!: true as AnyObject
                             ]
                             Util.ds.UserRef.child(uid!).child("groups").updateChildValues(groupId)
+                            self.performSegue(withIdentifier: "reveal", sender: nil)
                         }
                     }
                 })

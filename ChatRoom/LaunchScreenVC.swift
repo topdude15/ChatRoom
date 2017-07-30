@@ -35,7 +35,7 @@ class LaunchScreenVC: UIViewController {
             } else {
             print("Not logged in")
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                self.performSegue(withIdentifier: "login", sender: nil)
+                self.performSegue(withIdentifier: "signInScreen", sender: nil)
             })
         }
 

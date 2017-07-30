@@ -21,6 +21,7 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
 
 
         // Do any additional setup after loading the view.
@@ -55,7 +56,7 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let group = groups[indexPath.row]
         Util.ds.groupKey = group.groupKey
-        performSegue(withIdentifier: "chat", sender: nil)
+        performSegue(withIdentifier: "chatSW", sender: nil)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let group = groups[indexPath.row]

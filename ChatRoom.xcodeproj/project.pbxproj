@@ -26,6 +26,9 @@
 		CF3B03C31F0985B6009F1E44 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B03C21F0985B6009F1E44 /* CircleImage.swift */; };
 		CF3B03C51F09AB08009F1E44 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3B03C41F09AB08009F1E44 /* JoinVC.swift */; };
 		CF440BBA1F0D3BCF00CBEB19 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */; };
+		CF56E1FC1F2AD80E009578EE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF56E1FB1F2AD80E009578EE /* ShadowView.swift */; };
+		CF56E1FE1F2C0FAD009578EE /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */; };
+		CF6C95221F2E851400C080DE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF85CA641F12C3340047663C /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA631F12C3340047663C /* LaunchScreenVC.swift */; };
 		CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA661F12C8DC0047663C /* SignInVC.swift */; };
 		CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774721F0B306E00FC7290 /* CreateMainVC.swift */; };
@@ -85,6 +88,11 @@
 		CF3B03C21F0985B6009F1E44 /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		CF3B03C41F09AB08009F1E44 /* JoinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		CF56E1FB1F2AD80E009578EE /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerButton.swift; sourceTree = "<group>"; };
+		CF6C95201F2E851400C080DE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CF6C95211F2E851400C080DE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CF6C95231F2E85A000C080DE /* ChatRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF85CA631F12C3340047663C /* LaunchScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		CF85CA661F12C8DC0047663C /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		CFE774721F0B306E00FC7290 /* CreateMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMainVC.swift; sourceTree = "<group>"; };
@@ -159,14 +167,15 @@
 		CF02BDEC1F08449A00EF706D /* ChatRoom */ = {
 			isa = PBXGroup;
 			children = (
+				CF6C951F1F2E850600C080DE /* Supporting Files */,
 				CFE774791F0B3E0400FC7290 /* Models */,
-				CFE774741F0B39E900FC7290 /* Utilities */,
 				CF3B03C11F098569009F1E44 /* Views */,
 				CF02BE1D1F08473D00EF706D /* Controllers */,
 				CF02BE1E1F08474B00EF706D /* Info */,
+				CFE774741F0B39E900FC7290 /* Utilities */,
+				CF02BDF61F08449B00EF706D /* LaunchScreen.storyboard */,
 				CF02BDED1F08449A00EF706D /* AppDelegate.swift */,
 				CF02BDF11F08449B00EF706D /* Main.storyboard */,
-				CF02BDF61F08449B00EF706D /* LaunchScreen.storyboard */,
 				CF02BDF41F08449B00EF706D /* Assets.xcassets */,
 			);
 			path = ChatRoom;
@@ -196,12 +205,12 @@
 				CF02BE1F1F08709200EF706D /* SignUpVC.swift */,
 				CF85CA661F12C8DC0047663C /* SignInVC.swift */,
 				CF3B03BF1F097904009F1E44 /* AddUserImage.swift */,
-				CF3B03C41F09AB08009F1E44 /* JoinVC.swift */,
 				CFE774771F0B3D1100FC7290 /* GroupListVC.swift */,
 				CF36860D1F0EDE3900E7A75B /* ChatVC.swift */,
 				CFE774721F0B306E00FC7290 /* CreateMainVC.swift */,
 				CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */,
 				CF85CA631F12C3340047663C /* LaunchScreenVC.swift */,
+				CF3B03C41F09AB08009F1E44 /* JoinVC.swift */,
 				CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */,
 			);
 			name = Controllers;
@@ -222,8 +231,20 @@
 				CF3B03C21F0985B6009F1E44 /* CircleImage.swift */,
 				CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */,
 				CF3686111F0EE4FB00E7A75B /* ChatCell.swift */,
+				CF56E1FB1F2AD80E009578EE /* ShadowView.swift */,
+				CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		CF6C951F1F2E850600C080DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF6C95201F2E851400C080DE /* SWRevealViewController.h */,
+				CF6C95231F2E85A000C080DE /* ChatRoom-Bridging-Header.h */,
+				CF6C95211F2E851400C080DE /* SWRevealViewController.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CFE774741F0B39E900FC7290 /* Utilities */ = {
@@ -559,10 +580,12 @@
 			files = (
 				CFE7747B1F0B3E1000FC7290 /* Group.swift in Sources */,
 				CF3686101F0EE42D00E7A75B /* Chat.swift in Sources */,
+				CF56E1FE1F2C0FAD009578EE /* RoundedCornerButton.swift in Sources */,
 				CF3B03C01F097904009F1E44 /* AddUserImage.swift in Sources */,
 				CF1A85B31F181FBF00E1614F /* CreateDetailsVC.swift in Sources */,
 				CF3B03C31F0985B6009F1E44 /* CircleImage.swift in Sources */,
 				CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */,
+				CF6C95221F2E851400C080DE /* SWRevealViewController.m in Sources */,
 				CF02BDEE1F08449A00EF706D /* AppDelegate.swift in Sources */,
 				CF440BBA1F0D3BCF00CBEB19 /* GroupCell.swift in Sources */,
 				CF36860E1F0EDE3900E7A75B /* ChatVC.swift in Sources */,
@@ -573,6 +596,7 @@
 				CF2D85F91F1C17E6004E72B9 /* ProfileVC.swift in Sources */,
 				CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */,
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
+				CF56E1FC1F2AD80E009578EE /* ShadowView.swift in Sources */,
 				CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.Lyon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -757,6 +782,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.Lyon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

@@ -50,6 +50,6 @@ class ProfileVC: UIViewController {
     }
     @IBAction func signOut(_ sender: Any) {
         try! Auth.auth().signOut()
-        self.performSegue(withIdentifier: "login", sender: nil)
+        self.performSegue(withIdentifier: "signIn", sender: nil)
     }
 }

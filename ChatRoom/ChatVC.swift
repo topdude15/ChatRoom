@@ -12,11 +12,11 @@ import IQKeyboardManagerSwift
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageBox: UITextField!
     @IBOutlet weak var groupTitle: UILabel!
     @IBOutlet weak var groupColor: UIView!
+    @IBOutlet weak var menuButton: UIButton!
     
     let uid = Auth.auth().currentUser?.uid
     
@@ -27,6 +27,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
@@ -35,6 +37,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
     
     override func viewWillAppear(_ animated: Bool) {

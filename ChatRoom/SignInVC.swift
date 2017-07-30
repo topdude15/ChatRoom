@@ -35,4 +35,7 @@ class SignInVC: UIViewController {
             })
         }
     }
+    @IBAction func signUpTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signUp", sender: nil)
+    }
 }

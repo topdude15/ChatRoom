@@ -93,7 +93,4 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             })
         }
     }
-    @IBAction func signin(_ sender: Any) {
-        performSegue(withIdentifier: "login", sender: nil)
-    }
 }
