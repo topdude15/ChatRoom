@@ -12,39 +12,48 @@ import IQKeyboardManagerSwift
 
 class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
+    //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageBox: UITextField!
     @IBOutlet weak var groupTitle: UILabel!
     @IBOutlet weak var groupColor: UIView!
     @IBOutlet weak var menuButton: UIButton!
     
+    //UID for references to the current user
     let uid = Auth.auth().currentUser?.uid
     
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
-    var chats = [Chat]()
+    //Setup image cache and array for chat cells
     static var imageCache: NSCache<NSString, UIImage> = NSCache()
-    
+    var chats = [Chat]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Setup SWRevealViewController for menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-
+        //Add swipe to access menu and tap to close menu to view
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        //Set the estimated row height of cells to allow cells to expand
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
 
+        //Set up message box to be closable
         messageBox.delegate = self
-
+        
+        //Set up tableView to allow input of data
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //Get group key from  Util file, will be set in list
         let group = Util.ds.groupKey
         
+        //Get the group name and color and set accordingly
         Util.ds.GroupRef.child(group).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 if let groupTitle = dictionary["name"] as? String {
@@ -57,6 +66,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             }
         })
         
+        //Get the messages from the database and insert as cells
         Util.ds.GroupRef.child(group).child("messages").observe(.value, with: { (snapshot) in
             self.chats = []
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
@@ -72,22 +82,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         })
 
     }
-    
-    func colorize (hex: Int, alpha: Double = 1.0) -> UIColor {
-        let red = Double((hex & 0xFF0000) >> 16) / 255.0
-        let green = Double((hex & 0xFF00) >> 8) / 255.0
-        let blue = Double((hex & 0xFF)) / 255.0
-        let color: UIColor = UIColor( red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
-        return color
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-
-    }
+    //Close keyboard on Return pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+    //Setup table view
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -95,8 +95,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         return chats.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //...
+        //TODO: Go from the chat into a profile page for the user who made the chat
     }
+    
+    //Configure cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chats[indexPath.row]
         
@@ -108,11 +110,14 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         }
     }
 
+    //Runs when the user presses 'Send' on the chat button
     @IBAction func sendTapped(_ sender: Any) {
         let message = self.messageBox.text
         if (message == "") {
+            //Message box is empty
             print("No message entered")
         } else {
+            //Get user information
             Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
                     let username = dictionary["username"]
@@ -123,9 +128,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                         "image": image!,
                         "message": message as AnyObject
                     ]
+                    
+                    //Upload chat to database
                     let postId = Util.ds.GroupRef.child(Util.ds.groupKey).child("messages").childByAutoId()
                     postId.setValue(chat)
                     
+                    //Clear chat box
                     self.messageBox.text = ""
                     
                 }
@@ -133,9 +141,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         }
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.performSegue(withIdentifier: "list", sender: nil)
-    }
+    //Turn string into UIColor
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
