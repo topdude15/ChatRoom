@@ -19,7 +19,9 @@ class JoinVC: UIViewController {
         if (Util.ds.wentHome == false) {
             Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild("groups") {
+                    print("Yup")
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        print("Ye")
                         self.performSegue(withIdentifier: "reveal", sender: nil)
                         Util.ds.wentHome = true
                     })
@@ -114,9 +116,6 @@ class JoinVC: UIViewController {
     }
     @IBAction func createGroup(_ sender: Any) {
         performSegue(withIdentifier: "create", sender: nil) 
-    }
-    @IBAction func test(_ sender: Any) {
-        performSegue(withIdentifier: "list", sender: nil)
     }
     @IBAction func signOut(_ sender: Any) {
         performSegue(withIdentifier: "profile", sender: nil)

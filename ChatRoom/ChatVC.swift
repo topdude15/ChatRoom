@@ -31,6 +31,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
         //Setup SWRevealViewController for menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        print("Added!")
         //Add swipe to access menu and tap to close menu to view
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -46,7 +47,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         tableView.delegate = self
         tableView.dataSource = self
         
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

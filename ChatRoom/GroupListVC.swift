@@ -23,7 +23,6 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
 
-
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

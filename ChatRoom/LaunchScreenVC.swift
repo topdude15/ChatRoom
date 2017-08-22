@@ -18,21 +18,14 @@ class LaunchScreenVC: UIViewController {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
-        if let uid = Auth.auth().currentUser?.uid {
+        if Auth.auth().currentUser != nil {
             print("Already logged in")
-
-            Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.hasChild("groups") {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                        self.performSegue(withIdentifier: "join", sender: nil)
-                    })
-                } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                        self.performSegue(withIdentifier: "join", sender: nil)
-                    })
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                print("Going...")
+                self.performSegue(withIdentifier: "join", sender: nil)
+                print("Done!")
             })
-            } else {
+        } else {
             print("Not logged in")
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 self.performSegue(withIdentifier: "signInScreen", sender: nil)
