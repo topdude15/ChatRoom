@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3666FB771ED7F23C50E9A632 /* Pods_ChatRoomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2320792494FBD6D340A3AB9 /* Pods_ChatRoomTests.framework */; };
-		BE6FDAD4FFB1B8597282D3CE /* Pods_ChatRoomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0F62706D18D776E6B2087C /* Pods_ChatRoomUITests.framework */; };
 		CF02BDEE1F08449A00EF706D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BDED1F08449A00EF706D /* AppDelegate.swift */; };
 		CF02BDF31F08449B00EF706D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF02BDF11F08449B00EF706D /* Main.storyboard */; };
 		CF02BDF51F08449B00EF706D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF02BDF41F08449B00EF706D /* Assets.xcassets */; };
@@ -17,6 +15,8 @@
 		CF02BE0E1F08449C00EF706D /* ChatRoomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BE0D1F08449C00EF706D /* ChatRoomUITests.swift */; };
 		CF02BE1C1F08453600EF706D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */; };
 		CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF02BE1F1F08709200EF706D /* SignUpVC.swift */; };
+		CF1335F91F575301008F9C46 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1335F81F575301008F9C46 /* PhotoCell.swift */; };
+		CF1335FF1F5762BF008F9C46 /* RoundedPostImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1335FE1F5762BF008F9C46 /* RoundedPostImage.swift */; };
 		CF1A85B31F181FBF00E1614F /* CreateDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */; };
 		CF2D85F91F1C17E6004E72B9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */; };
 		CF36860E1F0EDE3900E7A75B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF36860D1F0EDE3900E7A75B /* ChatVC.swift */; };
@@ -28,6 +28,7 @@
 		CF440BBA1F0D3BCF00CBEB19 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */; };
 		CF56E1FC1F2AD80E009578EE /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF56E1FB1F2AD80E009578EE /* ShadowView.swift */; };
 		CF56E1FE1F2C0FAD009578EE /* RoundedCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */; };
+		CF6AADFB1F53612F004892F4 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */; };
 		CF6C95221F2E851400C080DE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF82CA1B1F4BC0B100459A35 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF82CA1D1F4BC0B400459A35 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
@@ -37,7 +38,9 @@
 		CFE774761F0B3A4E00FC7290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774751F0B3A4E00FC7290 /* Util.swift */; };
 		CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774771F0B3D1100FC7290 /* GroupListVC.swift */; };
 		CFE7747B1F0B3E1000FC7290 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE7747A1F0B3E1000FC7290 /* Group.swift */; };
-		DEF6F0F8DCC29CE2E0195688 /* Pods_ChatRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344753DFD23DA25DDA74F971 /* Pods_ChatRoom.framework */; };
+		EA6CCD9FB46BF1F684B810EA /* Pods_ChatRoomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C737A143EA97A614CAED51 /* Pods_ChatRoomTests.framework */; };
+		F45CE9E72EAE9FAB17C712BB /* Pods_ChatRoomUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A34FB6680C8DC201A70B72 /* Pods_ChatRoomUITests.framework */; };
+		FF2A8FEA308952490F28BEBB /* Pods_ChatRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE24F8E4690B492669E302 /* Pods_ChatRoom.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,15 +61,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28C737A143EA97A614CAED51 /* Pods_ChatRoomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3280C50A5A48F2428E2B9183 /* Pods-ChatRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoom/Pods-ChatRoom.release.xcconfig"; sourceTree = "<group>"; };
 		344309D28974BC034022BFF3 /* Pods-ChatRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoom/Pods-ChatRoom.debug.xcconfig"; sourceTree = "<group>"; };
-		344753DFD23DA25DDA74F971 /* Pods_ChatRoom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6132D3EBC65770E8DC936384 /* Pods-ChatRoomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomTests/Pods-ChatRoomTests.debug.xcconfig"; sourceTree = "<group>"; };
 		635FB1CA826EB58D8BAFFE34 /* Pods-ChatRoomUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomUITests/Pods-ChatRoomUITests.release.xcconfig"; sourceTree = "<group>"; };
+		75A34FB6680C8DC201A70B72 /* Pods_ChatRoomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7562A92599504EC55CC5E4 /* Pods-ChatRoomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomUITests/Pods-ChatRoomUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9186EAAC1E1AB979E04FC6F1 /* Pods-ChatRoomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomTests/Pods-ChatRoomTests.release.xcconfig"; sourceTree = "<group>"; };
-		B2320792494FBD6D340A3AB9 /* Pods_ChatRoomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0F62706D18D776E6B2087C /* Pods_ChatRoomUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoomUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFEE24F8E4690B492669E302 /* Pods_ChatRoom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatRoom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF02BDEA1F08449A00EF706D /* ChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF02BDED1F08449A00EF706D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF02BDF21F08449B00EF706D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 		CF02BE1B1F08453600EF706D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF02BE1F1F08709200EF706D /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		CF1215851F325C8400420C17 /* ChatRoom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatRoom.entitlements; sourceTree = "<group>"; };
+		CF1335F81F575301008F9C46 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		CF1335FE1F5762BF008F9C46 /* RoundedPostImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedPostImage.swift; sourceTree = "<group>"; };
 		CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDetailsVC.swift; sourceTree = "<group>"; };
 		CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		CF36860D1F0EDE3900E7A75B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		CF440BB91F0D3BCF00CBEB19 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		CF56E1FB1F2AD80E009578EE /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornerButton.swift; sourceTree = "<group>"; };
+		CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		CF6C95201F2E851400C080DE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CF6C95211F2E851400C080DE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CF6C95231F2E85A000C080DE /* ChatRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -109,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEF6F0F8DCC29CE2E0195688 /* Pods_ChatRoom.framework in Frameworks */,
+				FF2A8FEA308952490F28BEBB /* Pods_ChatRoom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3666FB771ED7F23C50E9A632 /* Pods_ChatRoomTests.framework in Frameworks */,
+				EA6CCD9FB46BF1F684B810EA /* Pods_ChatRoomTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6FDAD4FFB1B8597282D3CE /* Pods_ChatRoomUITests.framework in Frameworks */,
+				F45CE9E72EAE9FAB17C712BB /* Pods_ChatRoomUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +159,7 @@
 				CF02BE0C1F08449B00EF706D /* ChatRoomUITests */,
 				CF02BDEB1F08449A00EF706D /* Products */,
 				756A85B47258DF89252B47CE /* Pods */,
-				D299139C003362F43850D162 /* Frameworks */,
+				D7BBF4483B7CA166F00C1F9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +222,7 @@
 				CF85CA631F12C3340047663C /* LaunchScreenVC.swift */,
 				CF3B03C41F09AB08009F1E44 /* JoinVC.swift */,
 				CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */,
+				CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +244,8 @@
 				CF3686111F0EE4FB00E7A75B /* ChatCell.swift */,
 				CF56E1FB1F2AD80E009578EE /* ShadowView.swift */,
 				CF56E1FD1F2C0FAD009578EE /* RoundedCornerButton.swift */,
+				CF1335F81F575301008F9C46 /* PhotoCell.swift */,
+				CF1335FE1F5762BF008F9C46 /* RoundedPostImage.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -268,12 +277,12 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D299139C003362F43850D162 /* Frameworks */ = {
+		D7BBF4483B7CA166F00C1F9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				344753DFD23DA25DDA74F971 /* Pods_ChatRoom.framework */,
-				B2320792494FBD6D340A3AB9 /* Pods_ChatRoomTests.framework */,
-				BD0F62706D18D776E6B2087C /* Pods_ChatRoomUITests.framework */,
+				BFEE24F8E4690B492669E302 /* Pods_ChatRoom.framework */,
+				28C737A143EA97A614CAED51 /* Pods_ChatRoomTests.framework */,
+				75A34FB6680C8DC201A70B72 /* Pods_ChatRoomUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,10 +596,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1335FF1F5762BF008F9C46 /* RoundedPostImage.swift in Sources */,
 				CFE7747B1F0B3E1000FC7290 /* Group.swift in Sources */,
 				CF3686101F0EE42D00E7A75B /* Chat.swift in Sources */,
 				CF56E1FE1F2C0FAD009578EE /* RoundedCornerButton.swift in Sources */,
 				CF3B03C01F097904009F1E44 /* AddUserImage.swift in Sources */,
+				CF6AADFB1F53612F004892F4 /* EditProfileVC.swift in Sources */,
 				CF1A85B31F181FBF00E1614F /* CreateDetailsVC.swift in Sources */,
 				CF3B03C31F0985B6009F1E44 /* CircleImage.swift in Sources */,
 				CF02BE201F08709200EF706D /* SignUpVC.swift in Sources */,
@@ -606,6 +617,7 @@
 				CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */,
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
 				CF56E1FC1F2AD80E009578EE /* ShadowView.swift in Sources */,
+				CF1335F91F575301008F9C46 /* PhotoCell.swift in Sources */,
 				CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,7 +780,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W62T85YASV;
 				INFOPLIST_FILE = ChatRoom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.LyonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -777,6 +789,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -790,7 +803,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W62T85YASV;
 				INFOPLIST_FILE = ChatRoom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.LyonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -798,6 +811,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

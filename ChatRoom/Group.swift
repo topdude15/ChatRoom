@@ -17,7 +17,7 @@ class Group {
     
     var name: String {
         return _name
-    }
+    } 
     
     var image: String {
         return _image

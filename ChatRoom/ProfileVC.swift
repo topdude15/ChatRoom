@@ -30,7 +30,7 @@ class ProfileVC: UIViewController {
                 }
                 if let profileImage = dictionary["profileImage"] as? String {
                     let ref = Storage.storage().reference(forURL: profileImage)
-                    ref.getData(maxSize: 2 * 1024 * 1028) { (data, error) in
+                    ref.getData(maxSize: 2 * 1024 * 1024) { (data, error) in
                         if error != nil {
                             print("Image could not be download")
                         } else {
@@ -46,7 +46,7 @@ class ProfileVC: UIViewController {
         })
     }
     @IBAction func editProfile(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "edit", sender: nil)
     }
     @IBAction func signOut(_ sender: Any) {
         try! Auth.auth().signOut()

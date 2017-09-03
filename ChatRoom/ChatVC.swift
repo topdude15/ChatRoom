@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import IQKeyboardManagerSwift
 
-class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +18,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     @IBOutlet weak var groupTitle: UILabel!
     @IBOutlet weak var groupColor: UIView!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var postImage: RoundedPostImage!
+    
+    var imageSelected = false
+    var imagePicker: UIImagePickerController!
     
     //UID for references to the current user
     let uid = Auth.auth().currentUser?.uid
@@ -28,6 +32,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         //Setup SWRevealViewController for menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -102,6 +110,16 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chats[indexPath.row]
         
+        if chat.postImage != nil {
+            print("Cell has an image")
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as? PhotoCell {
+                print("Cell exists")
+                cell.configurePhotoCell(chat: chat)
+                return cell
+            } 
+        }
+        
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ChatCell {
             cell.configureCell(chat: chat)
             return cell
@@ -118,26 +136,62 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             print("No message entered")
         } else {
             //Get user information
-            Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                    let username = dictionary["username"]
-                    let image = dictionary["profileImage"]
+            if Util.ds.groupKey == "q" {
+                let alertController = UIAlertController(title: "No Group", message: "You haven't selected a group.  Go the menu and select a group", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
+            } else {
+                Util.ds.UserRef.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                        let username = dictionary["username"]
+                        let image = dictionary["profileImage"]
+                        
+                        var chat: Dictionary<String, AnyObject>? = nil
+                        
+                        if (self.imageSelected == true) {
+                            let image = self.postImage.image
+                            if let imgData = UIImageJPEGRepresentation(image!, 0.2) {
+                                let imgUid = NSUUID().uuidString
+                                let metadata = StorageMetadata()
+                                metadata.contentType = "image/jpeg"
+                                
+                                    Util.ds.StorageRef.child("postPics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
+                                        if error != nil {
+                                            print("Failed to upload post image")
+                                        } else {
+                                            let downloadUrl = metadata?.downloadURL()?.absoluteString
+                                            if let link  = downloadUrl { 
+                                                chat = [
+                                                    "username": username!,
+                                                    "image": image!,
+                                                    "message": message as AnyObject,
+                                                    "postImage": link as AnyObject
+                                                ]
+                                                //Upload chat to database
+                                                let postId = Util.ds.GroupRef.child(Util.ds.groupKey).child("messages").childByAutoId()
+                                                postId.setValue(chat)
+                                            }
+                                        }
+                                    }
+                            }
+                        } else {
+                            chat = [
+                                "username": username!,
+                                "image": image!,
+                                "message": message as AnyObject,
+                            ]
+                            //Upload chat to database
+                            let postId = Util.ds.GroupRef.child(Util.ds.groupKey).child("messages").childByAutoId()
+                            postId.setValue(chat)
+                        }
+
+                        //Clear chat box
+                        self.messageBox.text = ""
                     
-                    let chat: Dictionary<String, AnyObject> = [
-                        "username": username!,
-                        "image": image!,
-                        "message": message as AnyObject
-                    ]
-                    
-                    //Upload chat to database
-                    let postId = Util.ds.GroupRef.child(Util.ds.groupKey).child("messages").childByAutoId()
-                    postId.setValue(chat)
-                    
-                    //Clear chat box
-                    self.messageBox.text = ""
-                    
-                }
-            })
+                    }
+                })
+            }
         }
     }
     
@@ -162,5 +216,17 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    @IBAction func addImageTapped(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            postImage.image = image
+            imageSelected = true
+        } else {
+            print("Image is invalid")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 }

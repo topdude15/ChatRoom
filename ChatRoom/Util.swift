@@ -18,7 +18,7 @@ class Util {
     let StorageRef = Storage.storage().reference()
     
     
-    var groupKey = "key"
+    var groupKey = "q"
     
     var createGroupKey = "key"
     

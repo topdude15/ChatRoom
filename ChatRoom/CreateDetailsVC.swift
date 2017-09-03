@@ -92,10 +92,11 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                                 let group: Dictionary<String, AnyObject> = [
                                     "name": self.groupNameBox.text as AnyObject,
                                     "image": link as AnyObject,
-                                    "password": groupPassword as AnyObject
+                                    "password": groupPassword as AnyObject,
+                                    "groupKey": self.groupKeyBox.text as AnyObject
                                 ]
                                 Util.ds.GroupRef.child(self.groupCode).updateChildValues(group)
-                                self.performSegue(withIdentifier: "list", sender: nil)
+                                self.performSegue(withIdentifier: "groupsShow", sender: nil)
                                 
                             } else {
                                 let uid = Auth.auth().currentUser?.uid
@@ -121,10 +122,11 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
 
                                 let group: Dictionary<String, AnyObject> = [
                                     "name": self.groupNameBox.text as AnyObject,
-                                    "image": link as AnyObject
+                                    "image": link as AnyObject,
+                                    "groupKey": self.groupKeyBox.text as AnyObject
                                 ]
                                     Util.ds.GroupRef.child(self.groupCode).updateChildValues(group)
-                                self.performSegue(withIdentifier: "list", sender: nil)
+                                self.performSegue(withIdentifier: "groupsShow", sender: nil)
                             }
                             
 
