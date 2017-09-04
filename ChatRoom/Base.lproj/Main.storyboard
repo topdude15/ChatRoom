@@ -554,12 +554,13 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnZ-Yj-pzU" customClass="RoundedCornerButton" customModule="ChatRoom" customModuleProvider="target">
                                         <rect key="frame" x="25" y="145" width="300" height="43"/>
+                                        <color key="backgroundColor" red="0.99884873628616333" green="0.63625091314315796" blue="0.17238220572471619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="Hby-KO-5x7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                         <state key="normal" title="Join">
-                                            <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="joinTapped:" destination="w8X-gB-ryk" eventType="touchUpInside" id="uT7-BU-U7C"/>
@@ -992,11 +993,12 @@
                     <connections>
                         <segue destination="xJP-No-qsn" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="K3f-zw-kRd"/>
                         <segue destination="oQZ-f8-YYb" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="fKp-QG-XG9"/>
+                        <segue destination="8jO-7j-ECb" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSeguePushController" id="91W-5e-oZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgI-QH-ebV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2748" y="-762"/>
+            <point key="canvasLocation" x="3214" y="-761"/>
         </scene>
         <!--Group ListVC-->
         <scene sceneID="n6m-yC-Mx5">
@@ -1122,6 +1124,7 @@
                                                 <constraint firstItem="e0T-JL-qSA" firstAttribute="leading" secondItem="TPI-g6-4Ds" secondAttribute="trailing" constant="8" id="z8J-q6-gJc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="messageLabel" destination="e0T-JL-qSA" id="koq-ho-kfK"/>
                                             <outlet property="userImage" destination="TPI-g6-4Ds" id="8Wj-oc-Q7P"/>
@@ -1148,31 +1151,31 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly2-qC-IlR">
-                                                    <rect key="frame" x="71" y="32" width="296" height="48"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z9o-RK-j2C" customClass="RoundedPostImage" customModule="ChatRoom" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z9o-RK-j2C" customClass="RoundedPostImage" customModule="ChatRoom" customModuleProvider="target">
                                                     <rect key="frame" x="30" y="80" width="300" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="TNw-b2-Fd9"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvy-NT-5AO">
+                                                    <rect key="frame" x="71" y="32" width="284" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="p7V-9Z-Wuw" firstAttribute="top" secondItem="pP3-6Y-slS" secondAttribute="topMargin" id="0Hk-rM-UES"/>
+                                                <constraint firstItem="cvy-NT-5AO" firstAttribute="top" secondItem="uEw-LI-OLa" secondAttribute="bottom" constant="1" id="0JW-uL-QMq"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="leading" secondItem="pP3-6Y-slS" secondAttribute="leadingMargin" constant="22" id="0eq-2y-ok4"/>
                                                 <constraint firstItem="p7V-9Z-Wuw" firstAttribute="top" secondItem="uEw-LI-OLa" secondAttribute="top" id="3DQ-mf-GmP"/>
                                                 <constraint firstItem="uEw-LI-OLa" firstAttribute="leading" secondItem="p7V-9Z-Wuw" secondAttribute="trailing" constant="8" symbolic="YES" id="664-yL-gQc"/>
-                                                <constraint firstItem="uEw-LI-OLa" firstAttribute="trailing" secondItem="Ly2-qC-IlR" secondAttribute="trailing" id="Mgc-dP-o4f"/>
+                                                <constraint firstItem="z9o-RK-j2C" firstAttribute="top" secondItem="cvy-NT-5AO" secondAttribute="bottom" id="MsE-V0-rBv"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="leading" secondItem="p7V-9Z-Wuw" secondAttribute="leading" constant="22" id="Oun-PU-FYL"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="bottom" secondItem="pP3-6Y-slS" secondAttribute="bottomMargin" id="RJo-U7-YMZ"/>
-                                                <constraint firstItem="z9o-RK-j2C" firstAttribute="top" secondItem="Ly2-qC-IlR" secondAttribute="bottom" id="Zh0-qN-vQj"/>
-                                                <constraint firstItem="uEw-LI-OLa" firstAttribute="leading" secondItem="Ly2-qC-IlR" secondAttribute="leading" id="d86-hx-gSJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cvy-NT-5AO" secondAttribute="trailing" constant="12" id="bQ1-R9-bVh"/>
+                                                <constraint firstItem="cvy-NT-5AO" firstAttribute="leading" secondItem="p7V-9Z-Wuw" secondAttribute="trailing" constant="8" id="c8a-nh-dIU"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="trailing" secondItem="uEw-LI-OLa" secondAttribute="trailing" constant="-37" id="dr1-s8-Spl"/>
-                                                <constraint firstItem="Ly2-qC-IlR" firstAttribute="top" secondItem="uEw-LI-OLa" secondAttribute="bottom" constant="1" id="g81-mQ-bCq"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="top" secondItem="p7V-9Z-Wuw" secondAttribute="bottom" constant="16" id="hw8-xR-ts1"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="top" secondItem="p7V-9Z-Wuw" secondAttribute="bottom" constant="16" id="uub-4Z-VCU"/>
                                                 <constraint firstItem="z9o-RK-j2C" firstAttribute="trailing" secondItem="pP3-6Y-slS" secondAttribute="trailingMargin" constant="-37" id="wjL-nY-2mg"/>
@@ -1180,7 +1183,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messageField" destination="Ly2-qC-IlR" id="dOI-Rs-DZr"/>
+                                            <outlet property="messageField" destination="cvy-NT-5AO" id="YVX-9p-E4U"/>
                                             <outlet property="postImage" destination="z9o-RK-j2C" id="lIc-uR-i0x"/>
                                             <outlet property="profileImage" destination="p7V-9Z-Wuw" id="hQ9-JK-aOp"/>
                                             <outlet property="usernameField" destination="uEw-LI-OLa" id="YC8-Jp-Iyb"/>
@@ -1208,7 +1211,7 @@
                                             <action selector="sendTapped:" destination="oQZ-f8-YYb" eventType="touchUpInside" id="RiQ-r4-Cu7"/>
                                         </connections>
                                     </button>
-                                    <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="NR1-FN-gvn" customClass="RoundedPostImage" customModule="ChatRoom" customModuleProvider="target">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="NR1-FN-gvn" customClass="RoundedPostImage" customModule="ChatRoom" customModuleProvider="target">
                                         <rect key="frame" x="8" y="7" width="31" height="31"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -1309,6 +1312,24 @@
             </objects>
             <point key="canvasLocation" x="3213.5999999999999" y="-18.440779610194905"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="y1Y-1a-qfb">
+            <objects>
+                <viewController id="8jO-7j-ECb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZM4-1i-kSh"/>
+                        <viewControllerLayoutGuide type="bottom" id="JEO-5v-0Ye"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FvQ-66-6Md">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NyG-IF-RJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4063" y="-18"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Back - Black" width="800" height="1400"/>
@@ -1319,12 +1340,12 @@
         <image name="yellowgradient" width="480" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZBe-Yr-6TY"/>
+        <segue reference="YZ5-Bo-4RN"/>
+        <segue reference="K3f-zw-kRd"/>
         <segue reference="qgT-54-fEm"/>
-        <segue reference="tyr-oe-OAW"/>
+        <segue reference="fKp-QG-XG9"/>
+        <segue reference="2tb-Lt-QAY"/>
         <segue reference="SiW-FL-fXz"/>
-        <segue reference="vsA-hY-VyO"/>
-        <segue reference="isC-rN-hpo"/>
-        <segue reference="0fP-ID-MmM"/>
-        <segue reference="TRG-h5-fAp"/>
     </inferredMetricsTieBreakers>
 </document>

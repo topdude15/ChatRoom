@@ -17,6 +17,7 @@ class Util {
     let GroupRef = Database.database().reference().child("groups")
     let StorageRef = Storage.storage().reference()
     
+    var referralCode = ""
     
     var groupKey = "q"
     

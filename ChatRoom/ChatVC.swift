@@ -57,6 +57,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
     }
     
+    func joinGroup(groupKey: String) {
+        print(groupKey)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         //Get group key from  Util file, will be set in list
         let group = Util.ds.groupKey
@@ -88,6 +92,15 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                 }
             }
         })
+        let referralCode = Util.ds.referralCode
+        
+        if (referralCode != "") {
+            let alertController = UIAlertController(title: "Invalid Settings", message: "Please check that you set a username!", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            Util.ds.referralCode = ""
+        }
 
     }
     //Close keyboard on Return pressed
@@ -161,10 +174,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                                             print("Failed to upload post image")
                                         } else {
                                             let downloadUrl = metadata?.downloadURL()?.absoluteString
-                                            if let link  = downloadUrl { 
+                                            if let link = downloadUrl {
                                                 chat = [
                                                     "username": username!,
-                                                    "image": image!,
+                                                    "image": link as AnyObject,
                                                     "message": message as AnyObject,
                                                     "postImage": link as AnyObject
                                                 ]
@@ -188,6 +201,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
 
                         //Clear chat box
                         self.messageBox.text = ""
+                        self.postImage.image = #imageLiteral(resourceName: "plus")
                     
                     }
                 })
