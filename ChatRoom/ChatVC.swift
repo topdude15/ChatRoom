@@ -19,6 +19,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     @IBOutlet weak var groupColor: UIView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var postImage: RoundedPostImage!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var imageSelected = false
     var imagePicker: UIImagePickerController!
@@ -39,7 +40,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         
         //Setup SWRevealViewController for menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        print("Added!")
+        settingsButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)), for: .touchUpInside)
         //Add swipe to access menu and tap to close menu to view
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -55,8 +56,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         tableView.delegate = self
         tableView.dataSource = self
         
+        if Util.ds.groupKey == "q" {
+            settingsButton.isHidden = true
+        }
+        
     }
-    
     func joinGroup(groupKey: String) {
         print(groupKey)
     }
@@ -116,7 +120,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         return chats.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Go from the chat into a profile page for the user who made the chat
+        let chat = chats[indexPath.row]
+        
+        print(chat.username)
     }
     
     //Configure cells
