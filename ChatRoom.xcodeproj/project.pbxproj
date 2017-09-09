@@ -35,6 +35,7 @@
 		CF82CA1D1F4BC0B400459A35 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF85CA641F12C3340047663C /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA631F12C3340047663C /* LaunchScreenVC.swift */; };
 		CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA661F12C8DC0047663C /* SignInVC.swift */; };
+		CFCB06A91F6432680023D9AF /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB06A81F6432680023D9AF /* UserProfileVC.swift */; };
 		CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774721F0B306E00FC7290 /* CreateMainVC.swift */; };
 		CFE774761F0B3A4E00FC7290 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774751F0B3A4E00FC7290 /* Util.swift */; };
 		CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774771F0B3D1100FC7290 /* GroupListVC.swift */; };
@@ -106,6 +107,7 @@
 		CF6C95231F2E85A000C080DE /* ChatRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF85CA631F12C3340047663C /* LaunchScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		CF85CA661F12C8DC0047663C /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		CFCB06A81F6432680023D9AF /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		CFE774721F0B306E00FC7290 /* CreateMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMainVC.swift; sourceTree = "<group>"; };
 		CFE774751F0B3A4E00FC7290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		CFE774771F0B3D1100FC7290 /* GroupListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListVC.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */,
 				CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */,
 				CF59BA031F5F3D0F008DF84D /* GroupSettingsVC.swift */,
+				CFCB06A81F6432680023D9AF /* UserProfileVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
 				CF56E1FC1F2AD80E009578EE /* ShadowView.swift in Sources */,
 				CF1335F91F575301008F9C46 /* PhotoCell.swift in Sources */,
+				CFCB06A91F6432680023D9AF /* UserProfileVC.swift in Sources */,
 				CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

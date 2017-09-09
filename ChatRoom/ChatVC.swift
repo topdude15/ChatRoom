@@ -122,7 +122,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat = chats[indexPath.row]
         
-        print(chat.username)
+        print(chat.poster)
     }
     
     //Configure cells
@@ -149,6 +149,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
 
     //Runs when the user presses 'Send' on the chat button
     @IBAction func sendTapped(_ sender: Any) {
+        let uid = Auth.auth().currentUser?.uid
         let message = self.messageBox.text
         if (message == "") {
             //Message box is empty
@@ -182,6 +183,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                                             let downloadUrl = metadata?.downloadURL()?.absoluteString
                                             if let link = downloadUrl {
                                                 chat = [
+                                                    "poster": uid as AnyObject,
                                                     "username": username!,
                                                     "image": link as AnyObject,
                                                     "message": message as AnyObject,
@@ -196,6 +198,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                             }
                         } else {
                             chat = [
+                                "poster": uid as AnyObject,
                                 "username": username!,
                                 "image": image!,
                                 "message": message as AnyObject,

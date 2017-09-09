@@ -14,6 +14,7 @@ class Chat {
     private var _message: String!
     private var _image: String!
     private var _postImage:String?
+    private var _poster:String!
     
     var username: String {
         return _username
@@ -27,6 +28,9 @@ class Chat {
     var postImage: String? {
         return _postImage
     }
+    var poster: String {
+        return _poster
+    }
     
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
@@ -38,6 +42,11 @@ class Chat {
                 self._postImage = pImage
             } else {
                 print("Does not have image")
+            }
+            if let poster = postData["poster"] as? String {
+                self._poster = poster
+            } else {
+                self._poster = "nan"
             }
         }
     }
