@@ -8,9 +8,8 @@
 
 import UIKit
 import Firebase
-import ChromaColorPicker
 
-class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, ChromaColorPickerDelegate {
+class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupNameBox: UITextField!
@@ -23,13 +22,6 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let neatColorPicker = ChromaColorPicker(frame: CGRect(x: ((self.view.frame.width / 2) - 75), y: ((self.view.frame.height / 2) + 25), width: 150, height: 150))
-        neatColorPicker.delegate = self //ChromaColorPickerDelegate
-        neatColorPicker.padding = 0
-        neatColorPicker.stroke = 3
-        neatColorPicker.hexLabel.textColor = UIColor.black
-        self.view.addSubview(neatColorPicker)
         
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
@@ -46,15 +38,6 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
             }
         })
     }
-
-    
-    func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
-        let color: Dictionary<String, AnyObject> = [
-            "color": colorPicker.hexLabel.text as AnyObject
-        ]
-        Util.ds.GroupRef.child(groupCode).updateChildValues(color)
-    }
-    
     
     @IBAction func addGroupImage(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
@@ -64,15 +47,18 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
             groupImage.image = image
             imageSelected = true
         } else {
-            print("Invalid image selected")
+            let alert = UIAlertController(title: "Invalid Image", message: "This image is invalid.  Please select a different image and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func createTapped(_ sender: Any) {
         guard let image = groupImage.image, imageSelected == true else {
-            print("An image must be selected")
-            return
+            let alert = UIAlertController(title: "Invalid Settings", message: "You must set an image for your group.  Please set an image and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         if let imgData = UIImageJPEGRepresentation(image, 0.2) {
             let imgUid = NSUUID().uuidString
@@ -82,7 +68,9 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
             if let _ = Auth.auth().currentUser {
                 Util.ds.StorageRef.child("groupPics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
                     if error != nil {
-                        print("Could not upload image")
+                        let alert = UIAlertController(title: "Unknown Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     } else {
                         let downloadUrl = metadata?.downloadURL()?.absoluteString
                         if let link = downloadUrl {
@@ -126,7 +114,8 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                                     "groupKey": self.groupKeyBox.text as AnyObject
                                 ]
                                     Util.ds.GroupRef.child(self.groupCode).updateChildValues(group)
-                                self.performSegue(withIdentifier: "groupsShow", sender: nil)
+                                let reveal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RevealVC")
+                                self.present(reveal, animated: true, completion: nil)
                             }
                             
 
@@ -135,6 +124,11 @@ class CreateDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+    }
+    @IBAction func cancelTapped(_ sender: Any) {
+        Util.ds.GroupRef.child(groupKeyBox.text!).removeValue()
+        let reveal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RevealVC")
+        self.present(reveal, animated: true, completion: nil)
     }
     
 }

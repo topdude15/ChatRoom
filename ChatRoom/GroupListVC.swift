@@ -12,11 +12,20 @@ import Firebase
 class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var joinView: UIView!
+    @IBOutlet weak var effectView: UIVisualEffectView!
+    @IBOutlet weak var groupCodeBox: UITextField!
+    
+    var effect:UIVisualEffect!
     var groups = [Group]()
     let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        effect = effectView.effect
+        effectView.effect = nil
+        
+        joinView.layer.cornerRadius = 5
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,11 +48,10 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                             self.tableView.reloadData()
                         }
                     } else {
-                        print("Nope!")
+
                     }
                 }
             }
-            
         })
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,7 +63,8 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let group = groups[indexPath.row]
         Util.ds.groupKey = group.groupKey
-        performSegue(withIdentifier: "chatSW", sender: nil)
+        let reveal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RevealVC")
+        self.present(reveal, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let group = groups[indexPath.row]
@@ -67,8 +76,67 @@ class GroupListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return GroupCell()
         }
     }
-
-    @IBAction func backTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "join", sender: nil)
+    @IBAction func profileSettings(_ sender: Any) {
+        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+        self.present(profile, animated: true, completion: nil)
     }
+    @IBAction func join(_ sender: Any) {
+        animateIn()
+    }
+    @IBAction func joinGroup(_ sender: Any) {
+        let key = groupCodeBox.text
+        if (key == "") {
+            let alert = UIAlertController(title: "Invalid Settings", message: "You did not input a group key.  Please input a valid group key and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            Util.ds.GroupRef.observeSingleEvent(of: .value) { (snapshot) in
+                if snapshot.hasChild(key!) {
+                    let uid = Auth.auth().currentUser?.uid
+                    let groupInfo: Dictionary<String, AnyObject> = [
+                        uid!: true as AnyObject
+                    ]
+                    Util.ds.GroupRef.child(key!).child("users").updateChildValues(groupInfo)
+                    
+                    let userInfo: Dictionary<String, AnyObject> = [
+                        key!: true as AnyObject
+                    ]
+                    Util.ds.UserRef.child(uid!).child("groups").updateChildValues(userInfo)
+                    self.animateOut()
+                } else {
+                    let alert = UIAlertController(title: "Invalid Settings", message: "There's no group for this key.  Please input a valid group code.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    @IBAction func createGroup(_ sender: Any) {
+        let create = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateMainVC")
+        self.present(create, animated: true, completion: nil)
+    }
+    func animateIn() {
+        self.view.addSubview(joinView)
+        joinView.center = CGPoint(x: self.view.center.x - 30, y: self.view.center.y)
+        
+        joinView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        joinView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.effectView.effect = self.effect
+            self.joinView.alpha = 1
+            self.joinView.transform = CGAffineTransform.identity
+        }
+    }
+    func animateOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.joinView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.joinView.alpha = 0
+            
+            self.effectView.effect = nil
+        }) { (success: Bool) in
+            self.joinView.removeFromSuperview()
+        }
+    }
+    
 }

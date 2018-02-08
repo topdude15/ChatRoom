@@ -1,4 +1,4 @@
-//
+ //
 //  ChromaShadeSlider.swift
 //
 //  Copyright © 2016 Jonathan Cardasis. All rights reserved.
@@ -178,7 +178,11 @@ open class ChromaShadeSlider: UIControl {
         return true
     }
     
-    func doubleTapRecognized(_ recognizer: UITapGestureRecognizer){
+    override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        self.sendActions(for: .editingDidEnd)
+    }
+    
+  @objc func doubleTapRecognized(_ recognizer: UITapGestureRecognizer){
         let location = recognizer.location(in: self)
         guard handleView.frame.contains(location) else {
             return

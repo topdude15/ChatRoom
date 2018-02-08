@@ -12,13 +12,46 @@ import Firebase
 class SignUpVC: UIViewController, UITextFieldDelegate {
 
     //Links to text boxes in storyboard
+    @IBOutlet weak var backgroundView: ShadowView!
+    @IBOutlet weak var lyonLogo: UIImageView!
+    @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var usernameBox: UITextField!
     @IBOutlet weak var emailBox: UITextField!
     @IBOutlet weak var passwordBox: UITextField!
     @IBOutlet weak var repeatPasswordBox: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var goBackButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.signUpLabel.alpha = 0
+        self.usernameBox.alpha = 0
+        self.emailBox.alpha = 0
+        self.passwordBox.alpha = 0
+        self.repeatPasswordBox.alpha = 0
+        self.continueButton.alpha = 0
+        self.goBackButton.alpha = 0
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            UIView.animate(withDuration: 2, animations: {
+                self.signUpLabel.alpha = 1
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            UIView.animate(withDuration: 2, animations: {
+                self.usernameBox.alpha = 1
+                self.emailBox.alpha = 1
+                self.passwordBox.alpha = 1
+                self.repeatPasswordBox.alpha = 1
+                self.continueButton.alpha = 1
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            UIView.animate(withDuration: 2, animations: {
+                self.goBackButton.alpha = 1
+            })
+        }
 
         self.usernameBox.delegate = self
         self.emailBox.delegate = self
@@ -27,23 +60,11 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil {
-            performSegue(withIdentifier: "join", sender: nil)
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
-    @IBAction func signUpTapped(_ sender: Any) {
+    @IBAction func continueTapped(_ sender: Any) {
         //Makes sure that there is a username and that the email contains the correct characters for emails
         if (usernameBox.text == "") {
             let alertController = UIAlertController(title: "Invalid Settings", message: "Please check that you set a username!", preferredStyle: .alert)
@@ -67,30 +88,55 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         else {
             Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
                 if error != nil {         //Prints error for sign up failure that does not include missed fields
-                    let alertController = UIAlertController(title: "Signup Failed", message: "The sign up has failed.  Please contact us and try again later.", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Signup Failed", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
                 } else {
                     if let user = user {   //Set the user to allow for accessing the data of the user
-                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()  //Changes the displayName of the user for Firebase, which is shown in the authentication email
-                        changeRequest?.displayName = username
-                        changeRequest?.commitChanges(completion: { (error) in
-                            Auth.auth().currentUser?.sendEmailVerification { (error) in    //Sends verification email
-                                let usernameValue = ["username": username] //Setting up for username update
-                                Util.ds.UserRef.child(user.uid).updateChildValues(usernameValue)  //Sets the user's username in Firebase
-                                let alertController = UIAlertController(title: "Signup Completed", message: "Please confirm your email to continue.", preferredStyle: .alert)
-                                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: { action in
-                                    self.performSegue(withIdentifier: "addImage", sender: nil)   //Go to next screen when user closes popup to confirm email
-                                })
-                                alertController.addAction(defaultAction)
-                                self.present(alertController, animated: true, completion: nil)  //Present popup to tell user to validate email
-                            }
+                        let usernameValue = ["username": username]
+                        Util.ds.UserRef.child(user.uid).updateChildValues(usernameValue)
+                        UIView.animate(withDuration: 2, animations: {
+                            self.signUpLabel.alpha = 0
+                            self.usernameBox.alpha = 0
+                            self.emailBox.alpha = 0
+                            self.passwordBox.alpha = 0
+                            self.repeatPasswordBox.alpha = 0
+                            self.continueButton.alpha = 0
+                            self.goBackButton.alpha = 0
                         })
-
-                    }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                            let create = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateProfileVC")
+                            self.present(create, animated: false, completion: nil)
+                        })
+                      }
                 }
             })
+        }
+    }
+    @IBAction func returnTapped(_ sender: Any) {
+        UIView.animate(withDuration: 2) {
+            self.signUpLabel.alpha = 0
+            self.usernameBox.alpha = 0
+            self.emailBox.alpha = 0
+            self.passwordBox.alpha = 0
+            self.repeatPasswordBox.alpha = 0
+            self.continueButton.alpha = 0
+            self.goBackButton.alpha = 0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UIView.animate(withDuration: 2, animations: {
+                self.lyonLogo.frame = CGRect(x: (self.backgroundView.frame.width / 2) - (120), y: 18, width: 240, height: 240)
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            UIView.animate(withDuration: 2, animations: {
+                self.lyonLogo.alpha = 0
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+            let signInVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignInVC")
+            self.present(signInVC, animated: false, completion: nil)
         }
     }
 }

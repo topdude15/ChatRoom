@@ -11,6 +11,7 @@ import Firebase
 
 class CreateMainVC: UIViewController {
 
+    
     @IBOutlet weak var codeBox: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +33,15 @@ class CreateMainVC: UIViewController {
                 
                 Util.ds.createGroupKey = userCode!
                 
-                self.performSegue(withIdentifier: "create", sender: nil)
+                let create = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateDetailVC")
+                self.present(create, animated: true, completion: nil)
                 
             }
         })
+    }
+    @IBAction func cancelTapped(_ sender: Any) {
+        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+        self.present(profile, animated: true, completion: nil)
     }
     
 }

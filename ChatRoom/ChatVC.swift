@@ -61,9 +61,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         }
         
     }
-    func joinGroup(groupKey: String) {
-        print(groupKey)
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         //Get group key from  Util file, will be set in list
@@ -119,20 +116,16 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chats.count
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chat = chats[indexPath.row]
-        
-        print(chat.poster)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let chat = chats[indexPath.row]
+//    }
     
     //Configure cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chat = chats[indexPath.row]
         
         if chat.postImage != nil {
-            print("Cell has an image")
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as? PhotoCell {
-                print("Cell exists")
                 cell.configurePhotoCell(chat: chat)
                 return cell
             } 
@@ -153,7 +146,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
         let message = self.messageBox.text
         if (message == "") {
             //Message box is empty
-            print("No message entered")
+            let alert = UIAlertController(title: "Invalid Settings", message: "You haven't entered a message.  Please enter a message and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
             //Get user information
             if Util.ds.groupKey == "q" {
@@ -178,7 +173,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
                                 
                                     Util.ds.StorageRef.child("postPics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
                                         if error != nil {
-                                            print("Failed to upload post image")
+                                            let alert = UIAlertController(title: "Unknown Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                                            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                                            self.present(alert, animated: true, completion: nil)
                                         } else {
                                             let downloadUrl = metadata?.downloadURL()?.absoluteString
                                             if let link = downloadUrl {
@@ -226,7 +223,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.characters.count) != 6) {
+        if ((cString.count) != 6) {
             return UIColor.gray
         }
         
@@ -248,7 +245,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITe
             postImage.image = image
             imageSelected = true
         } else {
-            print("Image is invalid")
+            let alert = UIAlertController(title: "Invalid Image", message: "This image is invalid.  Please select a valid image and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }

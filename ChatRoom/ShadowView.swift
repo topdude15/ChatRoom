@@ -10,18 +10,15 @@ import UIKit
 
 class ShadowView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBInspectable
+    public var cornerRadius: CGFloat = 2.0 {
+        didSet {
+            self.layer.cornerRadius = self.cornerRadius
+        }
     }
-    */
-
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        layer.cornerRadius = 5
+
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize.zero

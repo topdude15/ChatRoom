@@ -33,7 +33,6 @@
 		CF6C95221F2E851400C080DE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF82CA1B1F4BC0B100459A35 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
 		CF82CA1D1F4BC0B400459A35 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C95211F2E851400C080DE /* SWRevealViewController.m */; };
-		CF85CA641F12C3340047663C /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA631F12C3340047663C /* LaunchScreenVC.swift */; };
 		CF85CA671F12C8DC0047663C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF85CA661F12C8DC0047663C /* SignInVC.swift */; };
 		CFCB06A91F6432680023D9AF /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCB06A81F6432680023D9AF /* UserProfileVC.swift */; };
 		CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE774721F0B306E00FC7290 /* CreateMainVC.swift */; };
@@ -105,9 +104,30 @@
 		CF6C95201F2E851400C080DE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		CF6C95211F2E851400C080DE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CF6C95231F2E85A000C080DE /* ChatRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Bridging-Header.h"; sourceTree = "<group>"; };
-		CF85CA631F12C3340047663C /* LaunchScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		CF85CA661F12C8DC0047663C /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		CF9B26091FF70CEB008ACA95 /* Mark Simonson - Proxima Nova Alt Black-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Alt Black-webfont.ttf"; sourceTree = "<group>"; };
 		CFCB06A81F6432680023D9AF /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		CFD428B12026A386003621C0 /* SanFranciscoDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		CFD428B22026A38A003621C0 /* SanFranciscoText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-HeavyItalic.otf"; sourceTree = "<group>"; };
+		CFD428B32026A38E003621C0 /* SanFranciscoText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Light.otf"; sourceTree = "<group>"; };
+		CFD428B42026A393003621C0 /* SanFranciscoDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		CFD428B52026A398003621C0 /* SanFranciscoText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-BoldItalic.otf"; sourceTree = "<group>"; };
+		CFD428B62026A39F003621C0 /* SanFranciscoDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Black.otf"; sourceTree = "<group>"; };
+		CFD428B72026A3A4003621C0 /* SanFranciscoText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Medium.otf"; sourceTree = "<group>"; };
+		CFD428B82026A3A9003621C0 /* SanFranciscoText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Regular.otf"; sourceTree = "<group>"; };
+		CFD428B92026A3AE003621C0 /* SanFranciscoText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		CFD428BA2026A3B3003621C0 /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
+		CFD428BB2026A3B8003621C0 /* SanFranciscoDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Thin.otf"; sourceTree = "<group>"; };
+		CFD428BC2026A3BD003621C0 /* SanFranciscoDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Medium.otf"; sourceTree = "<group>"; };
+		CFD428BD2026A3C2003621C0 /* SanFranciscoDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Heavy.otf"; sourceTree = "<group>"; };
+		CFD428BE2026A3C8003621C0 /* SanFranciscoDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Bold.otf"; sourceTree = "<group>"; };
+		CFD428BF2026A3CC003621C0 /* SanFranciscoText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Bold.otf"; sourceTree = "<group>"; };
+		CFD428C02026A3D1003621C0 /* SanFranciscoText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-LightItalic.otf"; sourceTree = "<group>"; };
+		CFD428C12026A3D6003621C0 /* SanFranciscoText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-RegularItalic.otf"; sourceTree = "<group>"; };
+		CFD428C22026A3DB003621C0 /* SanFranciscoText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-MediumItalic.otf"; sourceTree = "<group>"; };
+		CFD428C32026A3E0003621C0 /* SanFranciscoText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Heavy.otf"; sourceTree = "<group>"; };
+		CFD428C42026A3E5003621C0 /* SanFranciscoDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Light.otf"; sourceTree = "<group>"; };
+		CFD428C52026A3EA003621C0 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
 		CFE774721F0B306E00FC7290 /* CreateMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMainVC.swift; sourceTree = "<group>"; };
 		CFE774751F0B3A4E00FC7290 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		CFE774771F0B3D1100FC7290 /* GroupListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListVC.swift; sourceTree = "<group>"; };
@@ -180,6 +200,7 @@
 		CF02BDEC1F08449A00EF706D /* ChatRoom */ = {
 			isa = PBXGroup;
 			children = (
+				CFD428B02026A378003621C0 /* Fonts */,
 				CF1215851F325C8400420C17 /* ChatRoom.entitlements */,
 				CF6C951F1F2E850600C080DE /* Supporting Files */,
 				CFE774791F0B3E0400FC7290 /* Models */,
@@ -216,18 +237,17 @@
 		CF02BE1D1F08473D00EF706D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CF02BE1F1F08709200EF706D /* SignUpVC.swift */,
-				CF85CA661F12C8DC0047663C /* SignInVC.swift */,
 				CF3B03BF1F097904009F1E44 /* AddUserImage.swift */,
-				CFE774771F0B3D1100FC7290 /* GroupListVC.swift */,
 				CF36860D1F0EDE3900E7A75B /* ChatVC.swift */,
-				CFE774721F0B306E00FC7290 /* CreateMainVC.swift */,
 				CF1A85B21F181FBF00E1614F /* CreateDetailsVC.swift */,
-				CF85CA631F12C3340047663C /* LaunchScreenVC.swift */,
+				CFE774721F0B306E00FC7290 /* CreateMainVC.swift */,
+				CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */,
+				CFE774771F0B3D1100FC7290 /* GroupListVC.swift */,
+				CF59BA031F5F3D0F008DF84D /* GroupSettingsVC.swift */,
 				CF3B03C41F09AB08009F1E44 /* JoinVC.swift */,
 				CF2D85F81F1C17E6004E72B9 /* ProfileVC.swift */,
-				CF6AADFA1F53612F004892F4 /* EditProfileVC.swift */,
-				CF59BA031F5F3D0F008DF84D /* GroupSettingsVC.swift */,
+				CF02BE1F1F08709200EF706D /* SignUpVC.swift */,
+				CF85CA661F12C8DC0047663C /* SignInVC.swift */,
 				CFCB06A81F6432680023D9AF /* UserProfileVC.swift */,
 			);
 			name = Controllers;
@@ -266,10 +286,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CFD428B02026A378003621C0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CFD428B62026A39F003621C0 /* SanFranciscoDisplay-Black.otf */,
+				CFD428BE2026A3C8003621C0 /* SanFranciscoDisplay-Bold.otf */,
+				CFD428BD2026A3C2003621C0 /* SanFranciscoDisplay-Heavy.otf */,
+				CFD428C42026A3E5003621C0 /* SanFranciscoDisplay-Light.otf */,
+				CFD428BC2026A3BD003621C0 /* SanFranciscoDisplay-Medium.otf */,
+				CFD428C52026A3EA003621C0 /* SanFranciscoDisplay-Regular.otf */,
+				CFD428B12026A386003621C0 /* SanFranciscoDisplay-Semibold.otf */,
+				CFD428BB2026A3B8003621C0 /* SanFranciscoDisplay-Thin.otf */,
+				CFD428B42026A393003621C0 /* SanFranciscoDisplay-Ultralight.otf */,
+				CFD428BF2026A3CC003621C0 /* SanFranciscoText-Bold.otf */,
+				CFD428B52026A398003621C0 /* SanFranciscoText-BoldItalic.otf */,
+				CFD428C32026A3E0003621C0 /* SanFranciscoText-Heavy.otf */,
+				CFD428B22026A38A003621C0 /* SanFranciscoText-HeavyItalic.otf */,
+				CFD428B32026A38E003621C0 /* SanFranciscoText-Light.otf */,
+				CFD428C02026A3D1003621C0 /* SanFranciscoText-LightItalic.otf */,
+				CFD428B72026A3A4003621C0 /* SanFranciscoText-Medium.otf */,
+				CFD428C22026A3DB003621C0 /* SanFranciscoText-MediumItalic.otf */,
+				CFD428B82026A3A9003621C0 /* SanFranciscoText-Regular.otf */,
+				CFD428C12026A3D6003621C0 /* SanFranciscoText-RegularItalic.otf */,
+				CFD428BA2026A3B3003621C0 /* SanFranciscoText-Semibold.otf */,
+				CFD428B92026A3AE003621C0 /* SanFranciscoText-SemiboldItalic.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CFE774741F0B39E900FC7290 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				CFE774751F0B3A4E00FC7290 /* Util.swift */,
+				CF9B26091FF70CEB008ACA95 /* Mark Simonson - Proxima Nova Alt Black-webfont.ttf */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -365,13 +414,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Trevor Rose";
 				TargetAttributes = {
 					CF02BDE91F08449A00EF706D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = W62T85YASV;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -382,12 +431,14 @@
 					CF02BDFD1F08449B00EF706D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = ZJX725VCVA;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CF02BDE91F08449A00EF706D;
 					};
 					CF02BE081F08449B00EF706D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = ZJX725VCVA;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CF02BDE91F08449A00EF706D;
 					};
@@ -472,7 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61AD2AF50C2BF2FB3D51F1CA /* [CP] Embed Pods Frameworks */ = {
@@ -516,6 +567,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -523,6 +576,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -544,7 +599,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE7F12ABCB0FE99C996F82CB /* [CP] Check Pods Manifest.lock */ = {
@@ -562,7 +617,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2AC2EE94F6087883B4C0A29 /* [CP] Copy Pods Resources */ = {
@@ -619,7 +674,6 @@
 				CFE774761F0B3A4E00FC7290 /* Util.swift in Sources */,
 				CF3B03C51F09AB08009F1E44 /* JoinVC.swift in Sources */,
 				CF3686121F0EE4FB00E7A75B /* ChatCell.swift in Sources */,
-				CF85CA641F12C3340047663C /* LaunchScreenVC.swift in Sources */,
 				CF2D85F91F1C17E6004E72B9 /* ProfileVC.swift in Sources */,
 				CFE774781F0B3D1100FC7290 /* GroupListVC.swift in Sources */,
 				CFE774731F0B306E00FC7290 /* CreateMainVC.swift in Sources */,
@@ -693,7 +747,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -701,7 +757,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -744,7 +804,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -752,7 +814,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -796,7 +862,8 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -818,7 +885,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ChatRoom/ChatRoom-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -834,7 +902,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatRoom.app/ChatRoom";
 			};
 			name = Debug;
@@ -850,7 +919,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatRoom.app/ChatRoom";
 			};
 			name = Release;
@@ -865,7 +935,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoomUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = ChatRoom;
 			};
 			name = Debug;
@@ -880,7 +951,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trevor.ChatRoomUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = ChatRoom;
 			};
 			name = Release;

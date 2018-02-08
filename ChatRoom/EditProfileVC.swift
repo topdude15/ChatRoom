@@ -14,7 +14,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var editAccLabel: UILabel!
     
     var imagePicker: UIImagePickerController!
     
@@ -33,14 +33,6 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                     }
                     if let name = dictionary["name"] as? String {
                         self.nameField.text = name
-                    }
-                    if let date = dictionary["age"] as? String {
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MM dd yyyy"
-                        if let userDate = dateFormatter.date(from: date) {
-                            self.datePicker.date = userDate
-                        }
-                        
                     }
                     if let profileImageIcon = dictionary["profileImage"] {
                         let ref = Storage.storage().reference(forURL: profileImageIcon as! String)
@@ -64,9 +56,6 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBAction func saveButton(_ sender: Any) {
         let name = nameField.text
         let username = usernameField.text
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM dd yyyy"
-        let selectedDate = dateFormatter.string(from: self.datePicker.date)
         
         let image = profileImage.image
         if let imgData = UIImageJPEGRepresentation(image!, 0.2) {
@@ -76,14 +65,15 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             
             Util.ds.StorageRef.child("profilePics").child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
                 if error != nil {
-                    print("Error uploading image")
+                    let alert = UIAlertController(title: "Unknown Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 } else {
                     let downloadUrl = metadata?.downloadURL()?.absoluteString
                     if let link = downloadUrl {
                         if let uid = Auth.auth().currentUser?.uid {
                             let info: Dictionary<String, AnyObject> = [
                                 "profileImage": link as AnyObject,
-                                "age": selectedDate as AnyObject,
                                 "name": name as AnyObject,
                                 "username": username as AnyObject
                                 ]
@@ -95,7 +85,8 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
             
         }
         
-        self.performSegue(withIdentifier: "saved", sender: nil)
+        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+        self.present(profile, animated: true, completion: nil)
 
     }
     @IBAction func changeImageTapped(_ sender: Any) {
@@ -105,9 +96,15 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImage.image = image
         } else {
-            print("Invalid image selected")
+            let alert = UIAlertController(title: "Invalid Image", message: "This image is invalid.  Please select a different image and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func cancelTapped(_ sender: Any) {
+        let profile = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC")
+        self.present(profile, animated: true, completion: nil)
+    }
 }

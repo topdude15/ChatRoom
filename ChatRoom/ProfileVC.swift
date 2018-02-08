@@ -46,10 +46,12 @@ class ProfileVC: UIViewController {
         })
     }
     @IBAction func editProfile(_ sender: Any) {
-        self.performSegue(withIdentifier: "edit", sender: nil)
+        let edit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditProfileVC")
+        self.present(edit, animated: true, completion: nil)
     }
     @IBAction func signOut(_ sender: Any) {
         try! Auth.auth().signOut()
-        self.performSegue(withIdentifier: "signIn", sender: nil)
+        let signIn = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignInVC")
+        self.present(signIn, animated: true, completion: nil)
     }
 }

@@ -16,8 +16,6 @@ class GroupSettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         self.revealViewController().rightViewRevealWidth = self.view.frame.size.width - 60
         let group = Util.ds.groupKey
         if (group == "q") {
